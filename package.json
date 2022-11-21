@@ -11,7 +11,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/AlessandroDragone/components-test"
+    "url": "https://github.com/AlessandroDragone/components-test-library"
   },
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
