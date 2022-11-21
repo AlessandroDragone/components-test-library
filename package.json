@@ -1,6 +1,6 @@
 {
-  "name": "components-test",
-  "version": "0.1.0",
+  "name": "components-test-library",
+  "version": "0.1.1",
   "main": "dist/index.js",
   "private": false,
   "files": [
@@ -18,8 +18,8 @@
     "web-vitals": "^2.1.4"
   },
   "peerDependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "18.1.0",
+    "react-dom": "18.1.0",
     "react-native-web": "^0.18.10",
     "react-scripts": "5.0.1"
   },
