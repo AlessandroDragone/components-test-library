@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { StyleSheet, View, Text, Image } from "react-native";
+import { View, Text, Image } from "react-native";
+import StyleSheet from 'react-native-media-query';
 import CustomButton from "./CustomButton";
 import CustomInputBox from "./CustomInputBox";
 
@@ -33,27 +34,36 @@ function Home(props) {
 
     const setPenitence = () => {
         let rand = Math.floor(Math.random() * arrayPen.length);
-    
+
         if (state.penitence !== arrayPen[rand]) {
-          setState({
-            penitence: arrayPen[rand],
-          });
+            setState({
+                penitence: arrayPen[rand],
+            });
         } else {
-          setPenitence();
+            setPenitence();
         }
     }
 
     return (
-        <View style={style.home}>
-            <View style={style.header}>
+        <View>
+            <View
+                style={styles.header}
+                dataSet={{ media: ids.header }}
+            >
                 <CustomButton
                     label={'Classifica'}
                     callback={nav}
                 />
             </View>
 
-            <View style={style.container}>
-                <Text style={style.title}>
+            <View
+                style={styles.container}
+                dataSet={{ media: ids.container }}
+            >
+                <Text
+                    style={styles.title}
+                    dataSet={{ media: ids.title }}
+                >
                     Sasso Carta Forbice
                 </Text>
 
@@ -61,7 +71,10 @@ function Home(props) {
                     source={props.image}
                 />
 
-                <View style={style.inputContainer}>
+                <View
+                    style={styles.inputContainer}
+                    dataSet={{ media: ids.inputContainer }}
+                >
                     <CustomInputBox
                         placeholder={'Inserisci'}
                         callbackChange={setUsername}
@@ -72,7 +85,12 @@ function Home(props) {
                     />
                 </View>
 
-                <Text style={style.penitence}>{state.penitence}</Text>
+                <Text
+                    style={styles.penitence}
+                    dataSet={{ media: ids.penitence }}
+                >
+                    {state.penitence}
+                </Text>
                 <CustomButton
                     label={"Genera penitenza casuale"}
                     callback={setPenitence}
@@ -82,7 +100,7 @@ function Home(props) {
     );
 }
 
-const style = StyleSheet.create({
+const { ids, styles } = StyleSheet.create({
     header: {
         position: 'absolute',
         top: '20px',
@@ -90,12 +108,22 @@ const style = StyleSheet.create({
         flex: 1,
         justifyContent: 'flex-end',
         alignItems: 'flex-end',
+        '@media (min-width: 1000px)': {
+            position: 'absolute',
+            top: '50px',
+            right: '25px',
+            justifyContent: 'flex-end',
+            alignItems: 'flex-end',
+        },
     },
     container: {
-        width: '35%',
+        width: '90%',
         marginVertical: 0,
         marginHorizontal: 'auto',
         gap: '30px',
+        '@media (max-width: 767px)': {
+            width: '90%',
+        },
     },
     title: {
         marginTop: '50px',
@@ -103,19 +131,31 @@ const style = StyleSheet.create({
         color: '#3c5070',
         fontSize: '40px',
         textShadow: '1px 3px 0 #ffe4e5, 1px 13px 5px #ffe4e5',
+        '@media (min-width: 1000px)': {
+            fontSize: '60px',
+        },
     },
     inputContainer: {
-        width: '80%',
+        width: '100%',
         marginVertical: 0,
-        marginHorizontal: 'auto',
+        marginHorizontal: 0,
         flexDirection: 'row',
         alignItems: 'center',
+        justifyContent: 'center',
         gap: '20px',
+        overflow: 'hidden',
+        '@media (max-width: 767px)': {
+            marginBottom: '10px',
+            flexDirection: 'column',
+        },
     },
     penitence: {
         color: 'white',
         fontSize: '25px',
-    }
+        '@media (min-width: 1000px)': {
+            fontSize: '35px',
+        },
+    },
 })
 
 export default Home
