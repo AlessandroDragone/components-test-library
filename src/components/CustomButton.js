@@ -16,6 +16,9 @@ function CustomButton(props) {
                 <Text>
                     {props.label}
                 </Text>
+                <Text>
+                    {props.label}
+                </Text>
             </View>
         </TouchableOpacity>
     );
