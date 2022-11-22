@@ -1,31 +1,24 @@
 import React from "react";
 
-import { View, TouchableOpacity, Text } from "react-native";
+import { TouchableOpacity, Text } from "react-native";
+import style from "../styles/buttonStyle";
 
 function CustomButton(props) {
-
-    const handleClick = () => {
-        if(!!props.callback){
-            props.callback()
-        }
+  const handleClick = () => {
+    if (!!props.callback) {
+      props.callback();
     }
+  };
 
-    return (
-        <TouchableOpacity onPress={handleClick}>
-            <View>
-                <Text>
-                    {props.label}
-                </Text>
-                <Text>
-                    {props.label}
-                </Text>
-            </View>
-        </TouchableOpacity>
-    );
+  return (
+    <TouchableOpacity style={style.button} onPress={handleClick}>
+      <Text style={style.text}>{props.label}</Text>
+    </TouchableOpacity>
+  );
 }
 
 CustomButton.defaultProps = {
-    label: "Click",
-}
+  label: "Click",
+};
 
-export default CustomButton
+export default CustomButton;
