@@ -1,7 +1,7 @@
 // components/index.js
 
-import Button from './Button';
+import CustomButton from './CustomButton';
 
 export { 
-    Button
+    CustomButton
 };

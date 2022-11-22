@@ -1,8 +1,8 @@
 import React from "react";
 
-import { View, TouchableOpacity, Text } from "react-native-web";
+import { View, TouchableOpacity, Text } from "react-native";
 
-function Button(props) {
+function CustomButton(props) {
 
     const handleClick = () => {
         if(!!props.callback){
@@ -21,8 +21,8 @@ function Button(props) {
     );
 }
 
-Button.defaultProps = {
+CustomButton.defaultProps = {
     label: "Click",
 }
 
-export default Button
+export default CustomButton
