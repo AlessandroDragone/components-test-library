@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 var _react = _interopRequireDefault(require("react"));
 var _reactNative = require("react-native");
+var _buttonStyle = _interopRequireDefault(require("../styles/buttonStyle"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 function CustomButton(props) {
   var handleClick = function handleClick() {
@@ -14,8 +15,11 @@ function CustomButton(props) {
     }
   };
   return /*#__PURE__*/_react.default.createElement(_reactNative.TouchableOpacity, {
+    style: _buttonStyle.default.button,
     onPress: handleClick
-  }, /*#__PURE__*/_react.default.createElement(_reactNative.View, null, /*#__PURE__*/_react.default.createElement(_reactNative.Text, null, props.label)));
+  }, /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
+    style: _buttonStyle.default.text
+  }, props.label));
 }
 CustomButton.defaultProps = {
   label: "Click"
