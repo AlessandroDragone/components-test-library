@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
-import { TextInput } from "react-native";
-import style from "../styles/inputStyle";
+import { TextInput, StyleSheet } from "react-native";
 
 function CustomInputBox(props) {
   const [state, setState] = useState({
@@ -12,10 +11,8 @@ function CustomInputBox(props) {
     setState({
       value: e,
     });
-  }
-
-  function press() {
-    if (!!props.callbackChange) props.callbackChange(state.value);
+    
+    if (!!props.callbackChange) props.callbackChange(e);
   }
 
   return (
@@ -24,9 +21,22 @@ function CustomInputBox(props) {
       placeholder={props.placeholder}
       onChangeText={changeInput}
       value={state.value}
-      onSubmitEditing={press}
       placeholderTextColor={"grey"}
     />
   );
 }
+
+const style = StyleSheet.create({
+  inputbox: {
+    backgroundColor: '#ffffff',
+    paddingHorizontal: "20px",
+    paddingVertical: "15px",
+    fontSize: "20px",
+    fontFamily: "combo",
+    textAlign: "center",
+    borderRadius: "20px",
+    borderWidth: 1,
+  },
+});
+
 export default CustomInputBox;

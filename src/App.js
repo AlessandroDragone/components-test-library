@@ -1,8 +1,8 @@
-import logo from "./logo.svg";
 import "./App.css";
 import CustomInputBox from "./components/CustomInputBox";
 import { View } from "react-native";
 import { CustomButton } from "./components";
+import Home from "./components/Home";
 
 function App() {
   function log(e) {
@@ -10,11 +10,7 @@ function App() {
   }
   return (
     <div className="App">
-      <View style={{ height: "100px", width: "300px" }}>
-        <CustomButton />
-      </View>
-
-      <CustomInputBox callbackChange={log} />
+      <Home />
     </div>
   );
 }

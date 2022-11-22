@@ -12,9 +12,15 @@
     "url": "https://github.com/AlessandroDragone/components-test-library"
   },
   "dependencies": {
+    "@react-navigation/web": "^1.0.0-alpha.9",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "react-native-gesture-handler": "^2.8.0",
+    "react-native-reanimated": "^2.13.0",
+    "react-native-screens": "^3.18.2",
+    "react-navigation": "^4.4.4",
+    "react-navigation-stack": "^2.10.4",
     "web-vitals": "^2.1.4"
   },
   "peerDependencies": {
