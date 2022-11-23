@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, Image, StyleSheet } from "react-native";
+import { View, Text, Image, StyleSheet, Dimensions } from "react-native";
 import CustomButton from "./CustomButton";
 import CustomInputBox from "./CustomInputBox";
 import { useMediaQuery } from "react-responsive";
@@ -120,7 +120,7 @@ const style = StyleSheet.create({
         alignItems: 'flex-end',
     },
     container: {
-        width: '90%',
+        flex: 1,
         marginVertical: 0,
         marginHorizontal: 'auto',
         gap: 30,
@@ -133,7 +133,7 @@ const style = StyleSheet.create({
     },
     inputContainer: {
         width: '100%',
-        marginVertical: 0,
+        marginVertical: 10,
         marginHorizontal: 0,
         flexDirection: 'column',
         alignItems: 'center',
