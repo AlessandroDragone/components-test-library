@@ -5,6 +5,7 @@ import { CustomButton, Play } from "./components";
 import Home from "./components/Home";
 import { GiPaper, GiRock, GiScissors } from "react-icons/gi";
 import { useMediaQuery } from "react-responsive";
+import Ranking from "./components/Ranking";
 
 function App() {
   const isDesktop = useMediaQuery({ minWidth: 992 });
@@ -14,12 +15,7 @@ function App() {
   }
   return (
     <div className="App">
-      <Play
-        username={"marco"}
-        paper={<GiPaper color="pink" size={isDesktop ? 100 : 80} />}
-        scissor={<GiScissors color="pink" size={isDesktop ? 100 : 80} />}
-        rock={<GiRock color="pink" size={isDesktop ? 100 : 80} />}
-      />
+      <Play username={"marco"} />
     </div>
   );
 }

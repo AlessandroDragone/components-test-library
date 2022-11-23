@@ -30,7 +30,7 @@ function Home(props) {
     _useState2 = _slicedToArray(_useState, 2),
     state = _useState2[0],
     setState = _useState2[1];
-  var username = '';
+  var username = "";
   var setUsername = function setUsername(e) {
     username = e;
   };
@@ -54,7 +54,9 @@ function Home(props) {
       props.callbackPlay();
     }
   };
-  return /*#__PURE__*/_react.default.createElement(_reactNative.View, null, /*#__PURE__*/_react.default.createElement(_reactNative.View, {
+  return /*#__PURE__*/_react.default.createElement(_reactNative.View, {
+    style: isDesktop ? [style.mainContainer, desktopStyle.mainContainer] : style.mainContainer
+  }, /*#__PURE__*/_react.default.createElement(_reactNative.View, {
     style: style.header
   }, /*#__PURE__*/_react.default.createElement(_CustomButton.default, {
     label: 'Classifica',
@@ -64,13 +66,15 @@ function Home(props) {
     style: style.container
   }, /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
     style: style.title
-  }, "Sasso Carta Forbice"), /*#__PURE__*/_react.default.createElement(_reactNative.Image, {
-    source: props.image,
-    style: style.image
-  }), /*#__PURE__*/_react.default.createElement(_reactNative.View, {
-    style: isDesktop ? [style.inputContainer, desktopStyle.inputContainer] : style.inputContainer
+  }, "Sasso Carta Forbice"), /*#__PURE__*/_react.default.createElement(_reactNative.View, {
+    style: style.imageContainer
+  }, /*#__PURE__*/_react.default.createElement(_reactNative.Image, {
+    style: isDesktop ? [style.image, desktopStyle.image] : style.image,
+    source: props.image
+  })), /*#__PURE__*/_react.default.createElement(_reactNative.View, {
+    style: style.inputContainer
   }, /*#__PURE__*/_react.default.createElement(_CustomInputBox.default, {
-    placeholder: 'Inserisci',
+    placeholder: "Inserisci",
     callbackChange: setUsername,
     isDesktop: isDesktop
   }), /*#__PURE__*/_react.default.createElement(_CustomButton.default, {
@@ -86,6 +90,18 @@ function Home(props) {
   })));
 }
 var style = _reactNative.StyleSheet.create({
+  mainContainer: {
+    flex: 1,
+    marginTop: 15,
+    height: _reactNative.StatusBar.currentHeight - 15
+  },
+  imageContainer: {
+    width: '100%'
+  },
+  image: {
+    width: _reactNative.Dimensions.get('window').width,
+    height: 300
+  },
   header: {
     position: 'absolute',
     zIndex: 1,
@@ -96,20 +112,20 @@ var style = _reactNative.StyleSheet.create({
     alignItems: 'flex-end'
   },
   container: {
-    width: '90%',
+    flex: 1,
     marginVertical: 0,
-    marginHorizontal: 'auto',
-    gap: 30
+    marginHorizontal: 'auto'
   },
   title: {
     marginTop: 50,
     paddingTop: 40,
     color: '#3c5070',
-    fontSize: 40
+    fontSize: 40,
+    textAlign: 'center'
   },
   inputContainer: {
     width: '100%',
-    marginVertical: 0,
+    marginVertical: 10,
     marginHorizontal: 0,
     flexDirection: 'column',
     alignItems: 'center',
@@ -119,16 +135,19 @@ var style = _reactNative.StyleSheet.create({
   },
   penitence: {
     color: 'white',
-    fontSize: 25
-  },
-  image: {
-    width: 400,
-    height: 400
+    fontSize: 25,
+    textAlign: 'center'
   }
 });
 var desktopStyle = _reactNative.StyleSheet.create({
   inputContainer: {
     flexDirection: 'row'
+  },
+  image: {
+    width: '500px'
+  },
+  mainContainer: {
+    width: '650px'
   }
 });
 var _default = Home;
