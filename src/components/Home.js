@@ -54,7 +54,6 @@ function Home(props) {
                 <CustomButton
                     label={'Classifica'}
                     callback={nav}
-                    isDesktop={isDesktop}
                 />
             </View>
 
@@ -72,7 +71,7 @@ function Home(props) {
                 />
 
                 <View
-                    style={style.inputContainer}
+                    style={isDesktop ? [style.inputContainer, desktopStyle.inputContainer] : style.inputContainer}
                 >
                     <CustomInputBox
                         placeholder={'Inserisci'}
@@ -104,6 +103,7 @@ function Home(props) {
 const style = StyleSheet.create({
     header: {
         position: 'absolute',
+        zIndex: 1,
         top: 20,
         right: 25,
         flex: 1,
@@ -126,7 +126,7 @@ const style = StyleSheet.create({
         width: '100%',
         marginVertical: 0,
         marginHorizontal: 0,
-        flexDirection: 'row',
+        flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
         gap: 20,
@@ -136,6 +136,12 @@ const style = StyleSheet.create({
         color: 'white',
         fontSize: 25,
     },
+})
+
+const desktopStyle = StyleSheet.create({
+    inputContainer: {
+        flexDirection: 'row'
+    }
 })
 
 export default Home
