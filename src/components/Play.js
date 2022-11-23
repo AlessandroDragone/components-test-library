@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { StyleSheet, View, Text } from "react-native";
 import { GiRock } from "react-icons/gi";
 import { GiPaper } from "react-icons/gi";
@@ -21,7 +21,7 @@ function Play(props) {
     cpuPoint: 0,
     playerPoint: 0,
     playerChoice: null,
-    CPUChoice: null,
+    resultMessage: "",
   });
 
   const isDesktop = useMediaQuery({ minWidth: 992 });
@@ -55,26 +55,60 @@ function Play(props) {
   function confirmChoice() {
     let IAchoice = handleIAPlay();
     let result = res[IAchoice][state.playerChoice];
+    let playerPoint = state.playerPoint;
+    let cpuPoint = state.cpuPoint;
+    let message = "";
+    switch (result) {
+      case "w":
+        playerPoint++;
+        message = "Hai vinto!";
+        break;
+      case "l":
+        cpuPoint++;
+        message = "Hai perso!";
+
+        break;
+      default:
+        message = "Pareggio!";
+        break;
+    }
     console.log(state.playerChoice, IAchoice, result);
+
+    setState({
+      ...state,
+      resultMessage: message,
+      playerPoint: playerPoint,
+      cpuPoint: cpuPoint,
+      playerChoice: null,
+    });
   }
+
+  useEffect(() => {
+    let result = {
+      cpu: state.cpuPoint,
+      playerPoint: state.playerPoint,
+    };
+    if (state.cpuPoint === 3 || state.playerPoint === 3) {
+      //   props.callbackResult(result);
+    }
+  }, [state]);
 
   return (
     <View style={style.container}>
       <Text style={style.title}>Sasso Carta Forbice</Text>
       <Text style={[style.text, style.score]}>
-        Punteggio: {props.username} {state.playerPoint} - {state.playerPoint}{" "}
-        CPU
+        Punteggio: {props.username} {state.playerPoint} - {state.cpuPoint} CPU
       </Text>
       <Text style={style.text}>Scegli la tua giocata:</Text>
       <View style={style.iconContainer}>
         <IconButton isDesktop={isDesktop} value={0} callback={handleChoice}>
-          <GiPaper color="pink" size={isDesktop ? 100 : 80} />
+          {props.paper}
         </IconButton>
         <IconButton isDesktop={isDesktop} value={1} callback={handleChoice}>
-          <GiScissors color="pink" size={isDesktop ? 100 : 80} />
+          {props.scissor}
         </IconButton>
         <IconButton isDesktop={isDesktop} value={2} callback={handleChoice}>
-          <GiRock color="pink" size={isDesktop ? 100 : 80} />
+          {props.rock}
         </IconButton>
       </View>
       <View style={style.button}>
@@ -83,6 +117,9 @@ function Play(props) {
           callback={confirmChoice}
           disable={state.playerChoice !== null ? false : true}
         />
+      </View>
+      <View>
+        <Text style={[style.text, style.score]}>{state.resultMessage}</Text>
       </View>
     </View>
   );
@@ -104,7 +141,7 @@ const style = StyleSheet.create({
     fontSize: 35,
   },
   text: {
-    marginVertical: 30,
+    marginVertical: 20,
     color: "white",
     fontSize: 25,
   },
