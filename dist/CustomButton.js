@@ -9,22 +9,21 @@ var _reactNative = require("react-native");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 function CustomButton(props) {
   var handleClick = function handleClick() {
-    if (!!props.callbackLog) {
-      props.callbackLog(_reactNative.Platform.OS);
-    }
     if (!!props.callback) {
       props.callback();
     }
   };
   return /*#__PURE__*/_react.default.createElement(_reactNative.TouchableOpacity, {
-    style: mobile.button,
+    disabled: props.disable,
+    style: [mobile.button, props.disable && mobile.disable],
     onPress: handleClick
   }, /*#__PURE__*/_react.default.createElement(_reactNative.View, null, /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
     style: mobile.text
   }, props.label)));
 }
 CustomButton.defaultProps = {
-  label: "Click"
+  label: "Click",
+  disable: false
 };
 var mobile = _reactNative.StyleSheet.create({
   button: {
@@ -33,6 +32,9 @@ var mobile = _reactNative.StyleSheet.create({
     borderRadius: 30,
     paddingHorizontal: 35,
     paddingVertical: 15
+  },
+  disable: {
+    opacity: 0.5
   },
   text: {
     fontWeight: "bold",
