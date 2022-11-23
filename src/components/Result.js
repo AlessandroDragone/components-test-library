@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { StyleSheet, View, Text, ScrollView } from "react-native";
+import { StyleSheet, View, Text, Image } from "react-native";
 import CustomButton from "./CustomButton";
 import { useMediaQuery } from "react-responsive";
 
@@ -11,6 +11,18 @@ function Result(props) {
     const goToRank = () => {
         if (!!props.callbackRank) {
             props.callbackRank();
+        }
+    }
+
+    const goToPlay = () => {
+        if (!!props.callbackPlay) {
+            props.callbackPlay();
+        }
+    }
+
+    const goToHome = () => {
+        if (!!props.callbackHome) {
+            props.callbackHome();
         }
     }
 
@@ -26,10 +38,20 @@ function Result(props) {
             </View>
 
             <View>
-                <Image />
+                {
+                    props.win ?
+                        <Image />
+                        :
+                        <Image />
+                }
 
                 <View>
-                    <Text>Hai vinto/Hai perso</Text>
+                    {
+                        props.win ?
+                            <Text>Hai vinto!</Text>
+                            :
+                            <Text>Hai perso penitenza</Text>
+                    }
                     <Text>Risultati</Text>
                 </View>
             </View>
@@ -37,10 +59,12 @@ function Result(props) {
             <View>
                 <CustomButton
                     label={'Gioca ancora'}
+                    callback={goToPlay}
                 />
 
                 <CustomButton
                     label={'Torna alla home'}
+                    callback={goToHome}
                 />
             </View>
 

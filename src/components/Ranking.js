@@ -41,16 +41,6 @@ function Ranking(props) {
     return (
         <View style={isDesktop ? [mobile.rankingContainer, desktop.rankingContainer] : mobile.rankingContainer}>
 
-            <View
-                style={mobile.header}
-            >
-                <CustomButton
-                    label={'Classifica'}
-                    callback={goToHome}
-                    isDesktop={isDesktop}
-                />
-            </View>
-
             <Text
                 style={mobile.gameTitle}
             >
@@ -113,7 +103,7 @@ function Ranking(props) {
             </ScrollView>
 
             <CustomButton
-                label={'Gioca'}
+                label={'Home'}
                 callback={goToHome}
                 isDesktop={isDesktop}
             />
@@ -178,14 +168,6 @@ const mobile = StyleSheet.create({
         fontSize: 40,
         textShadowOffset: { width: 3, height: 1 },
         textShadowColor: '#ffe4e5'
-    },
-    header: {
-        position: 'absolute',
-        top: 20,
-        right: 25,
-        flex: 1,
-        justifyContent: 'flex-end',
-        alignItems: 'flex-end',
     },
 });
 
