@@ -39,11 +39,11 @@ function CustomInputBox(props) {
 var style = _reactNative.StyleSheet.create({
   inputbox: {
     backgroundColor: '#ffffff',
-    paddingHorizontal: "20px",
-    paddingVertical: "15px",
-    fontSize: "20px",
+    paddingHorizontal: 20,
+    paddingVertical: 15,
+    fontSize: 20,
     textAlign: "center",
-    borderRadius: "20px",
+    borderRadius: 20,
     borderWidth: 1
   }
 });

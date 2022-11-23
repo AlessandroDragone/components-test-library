@@ -30,13 +30,13 @@ var style = _reactNative.StyleSheet.create({
   button: {
     backgroundColor: "#2F4858",
     border: "none",
-    borderRadius: "30px",
-    paddingHorizontal: "35px",
-    paddingVertical: "15px"
+    borderRadius: 30,
+    paddingHorizontal: 35,
+    paddingVertical: 15
   },
   text: {
     fontWeight: "bold",
-    fontSize: "20px",
+    fontSize: 20,
     color: "white"
   }
 });

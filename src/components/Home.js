@@ -97,8 +97,8 @@ function Home(props) {
 const style = StyleSheet.create({
     header: {
         position: 'absolute',
-        top: '20px',
-        right: '25px',
+        top: 20,
+        right: 25,
         flex: 1,
         justifyContent: 'flex-end',
         alignItems: 'flex-end',
@@ -107,14 +107,13 @@ const style = StyleSheet.create({
         width: '90%',
         marginVertical: 0,
         marginHorizontal: 'auto',
-        gap: '30px',
+        gap: 30,
     },
     title: {
-        marginTop: '50px',
-        paddingTop: '40px',
+        marginTop: 50,
+        paddingTop: 40,
         color: '#3c5070',
-        fontSize: '40px',
-        textShadow: '1px 3px 0 #ffe4e5, 1px 13px 5px #ffe4e5',
+        fontSize: 40,
     },
     inputContainer: {
         width: '100%',
@@ -123,12 +122,12 @@ const style = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
-        gap: '20px',
+        gap: 20,
         overflow: 'hidden',
     },
     penitence: {
         color: 'white',
-        fontSize: '25px',
+        fontSize: 25,
     },
 })
 
