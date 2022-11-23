@@ -37,7 +37,7 @@ function Play(props) {
     state = _useState2[0],
     setState = _useState2[1];
   var isDesktop = (0, _reactResponsive.useMediaQuery)({
-    minWidth: 992
+    minWidth: 650
   });
   function handleChoice(e) {
     console.log(e);

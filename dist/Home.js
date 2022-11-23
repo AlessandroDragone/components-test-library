@@ -22,7 +22,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 var arrayPen = ["Offri da bere a tutti", "Bevi 2 shot di fila", "Fai 10 piegamenti", "Mangia un peperoncino intero", "Dire uno scioglilingua", "Contare a ritroso da 980 a 100", "Salta la corda per 2 minuti", "Mimare un proverbio", "Imita il verso di 3 animali"];
 function Home(props) {
   var isDesktop = (0, _reactResponsive.useMediaQuery)({
-    minWidth: 992
+    minWidth: 650
   });
   var _useState = (0, _react.useState)({
       penitence: arrayPen[0]
@@ -51,7 +51,7 @@ function Home(props) {
   };
   var goToPlay = function goToPlay() {
     if (!!props.callbackPlay) {
-      props.callbackPlay();
+      props.callbackPlay(username);
     }
   };
   return /*#__PURE__*/_react.default.createElement(_reactNative.View, {
@@ -92,14 +92,13 @@ function Home(props) {
 var style = _reactNative.StyleSheet.create({
   mainContainer: {
     flex: 1,
-    marginTop: 15,
-    height: _reactNative.StatusBar.currentHeight - 15
+    paddingTop: 20
   },
   imageContainer: {
     width: '100%'
   },
   image: {
-    width: _reactNative.Dimensions.get('window').width,
+    width: '100%',
     height: 300
   },
   header: {
@@ -136,18 +135,21 @@ var style = _reactNative.StyleSheet.create({
   penitence: {
     color: 'white',
     fontSize: 25,
-    textAlign: 'center'
+    textAlign: 'center',
+    marginBottom: 20,
+    marginTop: 25
   }
 });
 var desktopStyle = _reactNative.StyleSheet.create({
+  mainContainer: {
+    marginHorizontal: 'auto',
+    width: '650px'
+  },
   inputContainer: {
     flexDirection: 'row'
   },
   image: {
     width: '500px'
-  },
-  mainContainer: {
-    width: '650px'
   }
 });
 var _default = Home;
