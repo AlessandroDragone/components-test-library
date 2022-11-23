@@ -9,6 +9,7 @@ var _react = _interopRequireWildcard(require("react"));
 var _reactNative = require("react-native");
 var _CustomButton = _interopRequireDefault(require("./CustomButton"));
 var _CustomInputBox = _interopRequireDefault(require("./CustomInputBox"));
+var _reactResponsive = require("react-responsive");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
@@ -20,14 +21,16 @@ function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Sy
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 var arrayPen = ["Offri da bere a tutti", "Bevi 2 shot di fila", "Fai 10 piegamenti", "Mangia un peperoncino intero", "Dire uno scioglilingua", "Contare a ritroso da 980 a 100", "Salta la corda per 2 minuti", "Mimare un proverbio", "Imita il verso di 3 animali"];
 function Home(props) {
+  var isDesktop = (0, _reactResponsive.useMediaQuery)({
+    minWidth: 992
+  });
   var _useState = (0, _react.useState)({
       penitence: arrayPen[0]
     }),
     _useState2 = _slicedToArray(_useState, 2),
     state = _useState2[0],
     setState = _useState2[1];
-  var username = '';
-  var nav = function nav() {};
+  var username = "";
   var setUsername = function setUsername(e) {
     username = e;
   };
@@ -41,35 +44,66 @@ function Home(props) {
       setPenitence();
     }
   };
-  return /*#__PURE__*/_react.default.createElement(_reactNative.View, null, /*#__PURE__*/_react.default.createElement(_reactNative.View, {
+  var goToRanking = function goToRanking() {
+    if (!!props.callbackRank) {
+      props.callbackRank();
+    }
+  };
+  var goToPlay = function goToPlay() {
+    if (!!props.callbackPlay) {
+      props.callbackPlay();
+    }
+  };
+  return /*#__PURE__*/_react.default.createElement(_reactNative.View, {
+    style: isDesktop ? [style.mainContainer, desktopStyle.mainContainer] : style.mainContainer
+  }, /*#__PURE__*/_react.default.createElement(_reactNative.View, {
     style: style.header
   }, /*#__PURE__*/_react.default.createElement(_CustomButton.default, {
     label: 'Classifica',
-    callback: nav
+    callback: goToRanking,
+    isDesktop: isDesktop
   })), /*#__PURE__*/_react.default.createElement(_reactNative.View, {
     style: style.container
   }, /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
     style: style.title
-  }, "Sasso Carta Forbice"), /*#__PURE__*/_react.default.createElement(_reactNative.Image, {
+  }, "Sasso Carta Forbice"), /*#__PURE__*/_react.default.createElement(_reactNative.View, {
+    style: style.imageContainer
+  }, /*#__PURE__*/_react.default.createElement(_reactNative.Image, {
+    style: isDesktop ? [style.image, desktopStyle.image] : style.image,
     source: props.image
-  }), /*#__PURE__*/_react.default.createElement(_reactNative.View, {
+  })), /*#__PURE__*/_react.default.createElement(_reactNative.View, {
     style: style.inputContainer
   }, /*#__PURE__*/_react.default.createElement(_CustomInputBox.default, {
-    placeholder: 'Inserisci',
-    callbackChange: setUsername
+    placeholder: "Inserisci",
+    callbackChange: setUsername,
+    isDesktop: isDesktop
   }), /*#__PURE__*/_react.default.createElement(_CustomButton.default, {
     label: "Gioca",
-    callback: nav
+    callback: goToPlay,
+    isDesktop: isDesktop
   })), /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
     style: style.penitence
   }, state.penitence), /*#__PURE__*/_react.default.createElement(_CustomButton.default, {
     label: "Genera penitenza casuale",
-    callback: setPenitence
+    callback: setPenitence,
+    isDesktop: isDesktop
   })));
 }
 var style = _reactNative.StyleSheet.create({
+  mainContainer: {
+    flex: 1,
+    marginTop: 15
+  },
+  imageContainer: {
+    width: '100%'
+  },
+  image: {
+    width: _reactNative.Dimensions.get('window').width,
+    height: 300
+  },
   header: {
     position: 'absolute',
+    zIndex: 1,
     top: 20,
     right: 25,
     flex: 1,
@@ -77,22 +111,22 @@ var style = _reactNative.StyleSheet.create({
     alignItems: 'flex-end'
   },
   container: {
-    width: '90%',
+    flex: 1,
     marginVertical: 0,
-    marginHorizontal: 'auto',
-    gap: 30
+    marginHorizontal: 'auto'
   },
   title: {
     marginTop: 50,
     paddingTop: 40,
     color: '#3c5070',
-    fontSize: 40
+    fontSize: 40,
+    textAlign: 'center'
   },
   inputContainer: {
     width: '100%',
-    marginVertical: 0,
+    marginVertical: 10,
     marginHorizontal: 0,
-    flexDirection: 'row',
+    flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
     gap: 20,
@@ -100,7 +134,19 @@ var style = _reactNative.StyleSheet.create({
   },
   penitence: {
     color: 'white',
-    fontSize: 25
+    fontSize: 25,
+    textAlign: 'center'
+  }
+});
+var desktopStyle = _reactNative.StyleSheet.create({
+  inputContainer: {
+    flexDirection: 'row'
+  },
+  image: {
+    width: '500px'
+  },
+  mainContainer: {
+    width: '650px'
   }
 });
 var _default = Home;

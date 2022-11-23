@@ -1,7 +1,7 @@
 import "./App.css";
 import CustomInputBox from "./components/CustomInputBox";
 import { View } from "react-native";
-import { CustomButton } from "./components";
+import { CustomButton, Play } from "./components";
 import Home from "./components/Home";
 import Ranking from "./components/Ranking";
 
@@ -11,7 +11,7 @@ function App() {
   }
   return (
     <div className="App">
-      <Ranking />
+      <Play username={"marco"} />
     </div>
   );
 }

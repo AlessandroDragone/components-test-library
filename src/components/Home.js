@@ -1,61 +1,60 @@
 import React, { useState } from "react";
-import { View, Text, Image, StyleSheet } from "react-native";
+import { View, Text, Image, StyleSheet, Dimensions, StatusBar } from "react-native";
 import CustomButton from "./CustomButton";
 import CustomInputBox from "./CustomInputBox";
 import { useMediaQuery } from "react-responsive";
 
 const arrayPen = [
-    "Offri da bere a tutti",
-    "Bevi 2 shot di fila",
-    "Fai 10 piegamenti",
-    "Mangia un peperoncino intero",
-    "Dire uno scioglilingua",
-    "Contare a ritroso da 980 a 100",
-    "Salta la corda per 2 minuti",
-    "Mimare un proverbio",
-    "Imita il verso di 3 animali",
+  "Offri da bere a tutti",
+  "Bevi 2 shot di fila",
+  "Fai 10 piegamenti",
+  "Mangia un peperoncino intero",
+  "Dire uno scioglilingua",
+  "Contare a ritroso da 980 a 100",
+  "Salta la corda per 2 minuti",
+  "Mimare un proverbio",
+  "Imita il verso di 3 animali",
 ];
 
 function Home(props) {
+  const isDesktop = useMediaQuery({ minWidth: 992 });
 
-    const isDesktop = useMediaQuery({minWidth: 992})
+  const [state, setState] = useState({
+    penitence: arrayPen[0],
+  });
 
-    const [state, setState] = useState({
-        penitence: arrayPen[0],
-    })
+  let username = "";
 
-    let username = '';
+  const setUsername = (e) => {
+    username = e;
+  };
 
-    const setUsername = (e) => {
-        username = e
+  const setPenitence = () => {
+    let rand = Math.floor(Math.random() * arrayPen.length);
+
+    if (state.penitence !== arrayPen[rand]) {
+      setState({
+        penitence: arrayPen[rand],
+      });
+    } else {
+      setPenitence();
     }
+  };
 
-    const setPenitence = () => {
-        let rand = Math.floor(Math.random() * arrayPen.length);
-
-        if (state.penitence !== arrayPen[rand]) {
-            setState({
-                penitence: arrayPen[rand],
-            });
-        } else {
-            setPenitence();
-        }
+  const goToRanking = () => {
+    if (!!props.callbackRank) {
+      props.callbackRank();
     }
+  };
 
-    const goToRanking = () => {
-        if(!!props.callbackRank){
-            props.callbackRank();
-        }
+  const goToPlay = () => {
+    if (!!props.callbackPlay) {
+      props.callbackPlay();
     }
-
-    const goToPlay = () => {
-        if(!!props.callbackPlay){
-            props.callbackPlay();
-        }
-    }
+  };
 
     return (
-        <View>
+        <View style={isDesktop ? [style.mainContainer, desktopStyle.mainContainer] : style.mainContainer}>
             <View
                 style={style.header}
             >
@@ -74,44 +73,53 @@ function Home(props) {
                 >
                     Sasso Carta Forbice
                 </Text>
-
+                <View style={style.imageContainer}>
                 <Image
+                    style={isDesktop ? [style.image, desktopStyle.image] : style.image}
                     source={props.image}
                 />
-
-                <View
-                    style={style.inputContainer}
-                >
-                    <CustomInputBox
-                        placeholder={'Inserisci'}
-                        callbackChange={setUsername}
-                        isDesktop={isDesktop}
-                    />
-                    <CustomButton
-                        label={"Gioca"}
-                        callback={goToPlay}
-                        isDesktop={isDesktop}
-                    />
                 </View>
 
-                <Text
-                    style={style.penitence}
-                >
-                    {state.penitence}
-                </Text>
-                <CustomButton
-                    label={"Genera penitenza casuale"}
-                    callback={setPenitence}
-                    isDesktop={isDesktop}
-                />
-            </View>
+        <View style={style.inputContainer}>
+          <CustomInputBox
+            placeholder={"Inserisci"}
+            callbackChange={setUsername}
+            isDesktop={isDesktop}
+          />
+          <CustomButton
+            label={"Gioca"}
+            callback={goToPlay}
+            isDesktop={isDesktop}
+          />
         </View>
-    );
+
+        <Text style={style.penitence}>{state.penitence}</Text>
+        <CustomButton
+          label={"Genera penitenza casuale"}
+          callback={setPenitence}
+          isDesktop={isDesktop}
+        />
+      </View>
+    </View>
+  );
 }
 
 const style = StyleSheet.create({
+    mainContainer: {
+        flex:1,
+        marginTop: 15,
+        height: StatusBar.currentHeight - 15,
+    },  
+    imageContainer: {
+        width: '100%',
+    },  
+    image: {
+        width: Dimensions.get('window').width,
+        height: 300,
+    },
     header: {
         position: 'absolute',
+        zIndex: 1,
         top: 20,
         right: 25,
         flex: 1,
@@ -119,22 +127,22 @@ const style = StyleSheet.create({
         alignItems: 'flex-end',
     },
     container: {
-        width: '90%',
+        flex: 1,
         marginVertical: 0,
         marginHorizontal: 'auto',
-        gap: 30,
     },
     title: {
         marginTop: 50,
         paddingTop: 40,
         color: '#3c5070',
         fontSize: 40,
+        textAlign: 'center'
     },
     inputContainer: {
         width: '100%',
-        marginVertical: 0,
+        marginVertical: 10,
         marginHorizontal: 0,
-        flexDirection: 'row',
+        flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
         gap: 20,
@@ -143,7 +151,21 @@ const style = StyleSheet.create({
     penitence: {
         color: 'white',
         fontSize: 25,
+        textAlign: 'center'
     },
 })
+
+const desktopStyle = StyleSheet.create({
+    inputContainer: {
+        flexDirection: 'row'
+    },
+    image: {
+        width: '500px'
+    },
+    mainContainer: {
+        width: '650px'
+    }
+})
+
 
 export default Home
