@@ -49,7 +49,7 @@ function Home(props) {
 
   const goToPlay = () => {
     if (!!props.callbackPlay) {
-      props.callbackPlay();
+      props.callbackPlay(username);
     }
   };
 
