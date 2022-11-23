@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { StyleSheet, View, Text } from "react-native";
+import { StyleSheet, View, Text, ScrollView } from "react-native";
 import CustomButton from "./CustomButton";
 import { useMediaQuery } from "react-responsive";
 
@@ -15,6 +15,69 @@ function Ranking(props) {
     }
 
     const data = [
+        {
+            rank: 1,
+            nickname: 'alex',
+            vittorie: 1,
+            sconfitte: 2,
+            match: 3
+        },
+        {
+            rank: 2,
+            nickname: 'marco',
+            vittorie: 1,
+            sconfitte: 2,
+            match: 3
+        },
+        {
+            rank: 3,
+            nickname: 'gianluca',
+            vittorie: 1,
+            sconfitte: 2,
+            match: 3
+        },
+        {
+            rank: 1,
+            nickname: 'alex',
+            vittorie: 1,
+            sconfitte: 2,
+            match: 3
+        },
+        {
+            rank: 2,
+            nickname: 'marco',
+            vittorie: 1,
+            sconfitte: 2,
+            match: 3
+        },
+        {
+            rank: 3,
+            nickname: 'gianluca',
+            vittorie: 1,
+            sconfitte: 2,
+            match: 3
+        },
+        {
+            rank: 1,
+            nickname: 'alex',
+            vittorie: 1,
+            sconfitte: 2,
+            match: 3
+        },
+        {
+            rank: 2,
+            nickname: 'marco',
+            vittorie: 1,
+            sconfitte: 2,
+            match: 3
+        },
+        {
+            rank: 3,
+            nickname: 'gianluca',
+            vittorie: 1,
+            sconfitte: 2,
+            match: 3
+        },
         {
             rank: 1,
             nickname: 'alex',
@@ -60,8 +123,7 @@ function Ranking(props) {
             <Text style={mobile.title}>
                 Ranking
             </Text>
-
-            <View style={mobile.table}>
+            <View style={mobile.scrollViewContainer}>
 
                 <View style={mobile.row}>
                     <View style={mobile.viewRow}>
@@ -81,6 +143,7 @@ function Ranking(props) {
                     </View>
                 </View>
 
+            <ScrollView style={mobile.table}>
                 {data.map((d, key) => {
                     return (
                         <View key={key}>
@@ -110,6 +173,7 @@ function Ranking(props) {
                     )
 
                 })}
+            </ScrollView>
             </View>
 
             <CustomButton
@@ -128,9 +192,21 @@ const mobile = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
+    scrollViewContainer: {
+        maxHeight: 350,
+        overflow: 'hidden',
+        backgroundColor: '#f0f8ff',
+        border: 'none',
+        shadowOffset: { height: 10, width: 15 },
+        shadowRadius: 6,
+        shadowColor: 'rgba(0, 0, 0, 0.349)',
+        borderRadius: 25,
+        marginBottom: 25
+    },
     title: {
         fontWeight: 'bold',
         fontSize: 28,
+        marginBottom: 25
     },
     textColumn: {
         paddingHorizontal: 7,
@@ -139,7 +215,7 @@ const mobile = StyleSheet.create({
         textAlign: 'center',
     },
     textRow: {
-        fontSize: 'small',
+        fontSize: 12,
         textAlign: 'center',
     },
     viewRow: {
@@ -148,15 +224,7 @@ const mobile = StyleSheet.create({
     table: {
         marginVertical: 15,
         marginHorizontal: 'auto',
-        backgroundColor: '#f0f8ff',
-        border: 'none',
-        shadowOffset: { height: 10, width: 15 },
-        shadowRadius: 6,
-        shadowColor: 'rgba(0, 0, 0, 0.349)',
-        borderRadius: 25,
-        flex: 1,
         flexDirection: 'column',
-        height: 'fit-content',
         width: '95%',
     },
     row: {
@@ -172,17 +240,18 @@ const mobile = StyleSheet.create({
         backgroundColor: 'lightgray',
     },
     gameTitle: {
-        marginTop: 50,
-        marginBottom: 50,
+        marginTop: 30,
+        marginBottom: 30,
         paddingTop: 20,
         color: '#3c5070',
         fontSize: 40,
         textShadowOffset: { width: 3, height: 1 },
-        textShadowColor: '#ffe4e5'
+        textShadowColor: '#ffe4e5',
+        textAlign: 'center'
     },
     header: {
         position: 'absolute',
-        top: 20,
+        top: 30,
         right: 25,
         flex: 1,
         justifyContent: 'flex-end',
