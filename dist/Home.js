@@ -92,7 +92,8 @@ function Home(props) {
 var style = _reactNative.StyleSheet.create({
   mainContainer: {
     flex: 1,
-    marginTop: 15
+    marginTop: 15,
+    height: _reactNative.StatusBar.currentHeight - 15
   },
   imageContainer: {
     width: '100%'

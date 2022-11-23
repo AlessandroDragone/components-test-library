@@ -73,7 +73,7 @@ function Play(props) {
     style: style.title
   }, "Sasso Carta Forbice"), /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
     style: [style.text, style.score]
-  }, "Punteggio: ", props.username, " ", state.playerPoint, " - ", state.playerPoint, " ", "CPU"), /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
+  }, "Punteggio: ", props.username, " ", state.playerPoint, " - ", state.playerPoint, "CPU"), /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
     style: style.text
   }, "Scegli la tua giocata:"), /*#__PURE__*/_react.default.createElement(_reactNative.View, {
     style: style.iconContainer
