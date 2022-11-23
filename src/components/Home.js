@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { View, Text, Image, StyleSheet } from "react-native";
 import CustomButton from "./CustomButton";
 import CustomInputBox from "./CustomInputBox";
+import { useMediaQuery } from "react-responsive";
 
 const arrayPen = [
     "Offri da bere a tutti",
@@ -16,6 +17,8 @@ const arrayPen = [
 ];
 
 function Home(props) {
+
+    const isDesktop = useMediaQuery({minWidth: 992})
 
     const [state, setState] = useState({
         penitence: arrayPen[0],
@@ -51,6 +54,7 @@ function Home(props) {
                 <CustomButton
                     label={'Classifica'}
                     callback={nav}
+                    isDesktop={isDesktop}
                 />
             </View>
 
@@ -73,10 +77,12 @@ function Home(props) {
                     <CustomInputBox
                         placeholder={'Inserisci'}
                         callbackChange={setUsername}
+                        isDesktop={isDesktop}
                     />
                     <CustomButton
                         label={"Gioca"}
                         callback={nav}
+                        isDesktop={isDesktop}
                     />
                 </View>
 
@@ -88,6 +94,7 @@ function Home(props) {
                 <CustomButton
                     label={"Genera penitenza casuale"}
                     callback={setPenitence}
+                    isDesktop={isDesktop}
                 />
             </View>
         </View>

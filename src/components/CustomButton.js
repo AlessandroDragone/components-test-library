@@ -15,11 +15,11 @@ function CustomButton(props) {
 
     return (
         <TouchableOpacity
-            style={style.button}
+            style={props.isDesktop ? [mobile.button, desktop.button] : mobile.button}
             onPress={handleClick}
         >
             <Text
-                style={style.text}
+                style={[mobile.text, desktop.text]}
             >
                 {props.label}
             </Text>
@@ -31,7 +31,11 @@ CustomButton.defaultProps = {
     label: "Click",
 };
 
-const style = StyleSheet.create({
+const mobile = StyleSheet.create({
+    
+});
+
+const desktop = StyleSheet.create({
     button: {
         backgroundColor: "#2F4858",
         border: "none",
@@ -44,6 +48,6 @@ const style = StyleSheet.create({
         fontSize: 20,
         color: "white",
     },
-});
+})
 
 export default CustomButton;
