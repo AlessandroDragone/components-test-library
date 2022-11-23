@@ -4,10 +4,6 @@ import { TouchableOpacity, Text, Platform, StyleSheet } from "react-native";
 
 function CustomButton(props) {
     const handleClick = () => {
-        if (!!props.callbackLog) {
-            props.callbackLog(Platform.OS)
-        }
-        
         if (!!props.callback) {
             props.callback();
         }

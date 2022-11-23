@@ -1,7 +1,7 @@
 import "./App.css";
 import CustomInputBox from "./components/CustomInputBox";
 import { View } from "react-native";
-import { CustomButton } from "./components";
+import { CustomButton, Play } from "./components";
 import Home from "./components/Home";
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
   }
   return (
     <div className="App">
-      <Home />
+      <Play username={"marco"} />
     </div>
   );
 }
