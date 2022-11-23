@@ -6,7 +6,6 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = IconButton;
 var _react = _interopRequireDefault(require("react"));
 var _reactNative = require("react-native");
-var _gi = require("react-icons/gi");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 function IconButton(props) {
   var handleClick = function handleClick() {

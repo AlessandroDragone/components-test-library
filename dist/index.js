@@ -21,14 +21,28 @@ Object.defineProperty(exports, "Home", {
     return _Home.default;
   }
 });
+Object.defineProperty(exports, "IconButton", {
+  enumerable: true,
+  get: function get() {
+    return _IconButton.default;
+  }
+});
 Object.defineProperty(exports, "Play", {
   enumerable: true,
   get: function get() {
     return _Play.default;
   }
 });
+Object.defineProperty(exports, "Ranking", {
+  enumerable: true,
+  get: function get() {
+    return _Ranking.default;
+  }
+});
 var _CustomButton = _interopRequireDefault(require("./CustomButton"));
 var _CustomInputBox = _interopRequireDefault(require("./CustomInputBox"));
+var _IconButton = _interopRequireDefault(require("./IconButton"));
 var _Home = _interopRequireDefault(require("./Home"));
 var _Play = _interopRequireDefault(require("./Play"));
+var _Ranking = _interopRequireDefault(require("./Ranking"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
