@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
-import { StyleSheet, View, Text } from "react-native";
-import CustomButton from "./CustomButton";
+import { StyleSheet, View, Text, ScrollView } from "react-native";
+import CustomButton from "components-test-library/dist/CustomButton";
 import { useMediaQuery } from "react-responsive";
 
 function Ranking(props) {
@@ -15,6 +15,69 @@ function Ranking(props) {
     }
 
     const data = [
+        {
+            rank: 1,
+            nickname: 'alex',
+            vittorie: 1,
+            sconfitte: 2,
+            match: 3
+        },
+        {
+            rank: 2,
+            nickname: 'marco',
+            vittorie: 1,
+            sconfitte: 2,
+            match: 3
+        },
+        {
+            rank: 3,
+            nickname: 'gianluca',
+            vittorie: 1,
+            sconfitte: 2,
+            match: 3
+        },
+        {
+            rank: 1,
+            nickname: 'alex',
+            vittorie: 1,
+            sconfitte: 2,
+            match: 3
+        },
+        {
+            rank: 2,
+            nickname: 'marco',
+            vittorie: 1,
+            sconfitte: 2,
+            match: 3
+        },
+        {
+            rank: 3,
+            nickname: 'gianluca',
+            vittorie: 1,
+            sconfitte: 2,
+            match: 3
+        },
+        {
+            rank: 1,
+            nickname: 'alex',
+            vittorie: 1,
+            sconfitte: 2,
+            match: 3
+        },
+        {
+            rank: 2,
+            nickname: 'marco',
+            vittorie: 1,
+            sconfitte: 2,
+            match: 3
+        },
+        {
+            rank: 3,
+            nickname: 'gianluca',
+            vittorie: 1,
+            sconfitte: 2,
+            match: 3
+        },
         {
             rank: 1,
             nickname: 'alex',
@@ -60,8 +123,8 @@ function Ranking(props) {
             <Text style={mobile.title}>
                 Ranking
             </Text>
-
-            <View style={mobile.table}>
+            <View style={mobile.scrollViewContainer}>
+            <ScrollView style={mobile.table}>
 
                 <View style={mobile.row}>
                     <View style={mobile.viewRow}>
@@ -110,6 +173,7 @@ function Ranking(props) {
                     )
 
                 })}
+            </ScrollView>
             </View>
 
             <CustomButton
@@ -128,6 +192,16 @@ const mobile = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
+    scrollViewContainer: {
+        maxHeight: 350,
+        overflow: 'hidden',
+        backgroundColor: '#f0f8ff',
+        border: 'none',
+        shadowOffset: { height: 10, width: 15 },
+        shadowRadius: 6,
+        shadowColor: 'rgba(0, 0, 0, 0.349)',
+        borderRadius: 25,
+    },
     title: {
         fontWeight: 'bold',
         fontSize: 28,
@@ -139,7 +213,7 @@ const mobile = StyleSheet.create({
         textAlign: 'center',
     },
     textRow: {
-        fontSize: 'small',
+        fontSize: 12,
         textAlign: 'center',
     },
     viewRow: {
@@ -148,15 +222,7 @@ const mobile = StyleSheet.create({
     table: {
         marginVertical: 15,
         marginHorizontal: 'auto',
-        backgroundColor: '#f0f8ff',
-        border: 'none',
-        shadowOffset: { height: 10, width: 15 },
-        shadowRadius: 6,
-        shadowColor: 'rgba(0, 0, 0, 0.349)',
-        borderRadius: 25,
-        flex: 1,
         flexDirection: 'column',
-        height: 'fit-content',
         width: '95%',
     },
     row: {
