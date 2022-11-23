@@ -1,6 +1,6 @@
 {
   "name": "components-test-library",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "main": "dist/index.js",
   "private": false,
   "files": [
@@ -16,12 +16,6 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
-    "react-native-gesture-handler": "^2.8.0",
-    "react-native-media-query": "^2.0.0",
-    "react-native-reanimated": "^2.13.0",
-    "react-native-screens": "^3.18.2",
-    "react-navigation": "^4.4.4",
-    "react-navigation-stack": "^2.10.4",
     "web-vitals": "^2.1.4"
   },
   "peerDependencies": {

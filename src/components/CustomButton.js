@@ -1,7 +1,6 @@
 import React from "react";
 
-import { TouchableOpacity, Text, Platform } from "react-native";
-import StyleSheet from 'react-native-media-query';
+import { TouchableOpacity, Text, Platform, StyleSheet } from "react-native";
 
 function CustomButton(props) {
     const handleClick = () => {
@@ -16,13 +15,11 @@ function CustomButton(props) {
 
     return (
         <TouchableOpacity
-            style={styles.button}
-            dataSet={{ media: ids.button }}
+            style={style.button}
             onPress={handleClick}
         >
             <Text
-                style={styles.text}
-                dataSet={{ media: ids.text }}
+                style={style.text}
             >
                 {props.label}
             </Text>
@@ -34,26 +31,19 @@ CustomButton.defaultProps = {
     label: "Click",
 };
 
-const { ids, styles } = StyleSheet.create({
+const style = StyleSheet.create({
     button: {
         backgroundColor: "#2F4858",
         border: "none",
         borderRadius: "30px",
         paddingHorizontal: "35px",
         paddingVertical: "15px",
-        '@media (min-width: 1000px)': {
-            paddingHorizontal: "40px",
-            paddingVertical: "20px",
-        },
     },
     text: {
         fontWeight: "bold",
         fontFamily: "combo",
         fontSize: "20px",
         color: "white",
-        '@media (min-width: 1000px)': {
-            fontSize: '20px',
-        },
     },
 });
 

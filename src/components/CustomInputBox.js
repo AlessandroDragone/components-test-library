@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
-import { TextInput } from "react-native";
-import StyleSheet from 'react-native-media-query';
+import { TextInput, StyleSheet } from "react-native";
 
 function CustomInputBox(props) {
   const [state, setState] = useState({
@@ -18,8 +17,7 @@ function CustomInputBox(props) {
 
   return (
     <TextInput
-      style={styles.inputbox}
-      dataSet={{ media: ids.inputbox }}
+      style={style.inputbox}
       placeholder={props.placeholder}
       onChangeText={changeInput}
       value={state.value}
@@ -28,7 +26,7 @@ function CustomInputBox(props) {
   );
 }
 
-const { ids, styles } = StyleSheet.create({
+const style = StyleSheet.create({
   inputbox: {
     backgroundColor: '#ffffff',
     paddingHorizontal: "20px",
@@ -38,10 +36,6 @@ const { ids, styles } = StyleSheet.create({
     textAlign: "center",
     borderRadius: "20px",
     borderWidth: 1,
-    '@media (min-width: 1000px)': {
-      paddingHorizontal: "50px",
-      paddingVertical: "15px",
-    },
   },
 });
 

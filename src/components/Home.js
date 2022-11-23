@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, Image } from "react-native";
-import StyleSheet from 'react-native-media-query';
+import { View, Text, Image, StyleSheet } from "react-native";
 import CustomButton from "./CustomButton";
 import CustomInputBox from "./CustomInputBox";
 
@@ -47,8 +46,7 @@ function Home(props) {
     return (
         <View>
             <View
-                style={styles.header}
-                dataSet={{ media: ids.header }}
+                style={style.header}
             >
                 <CustomButton
                     label={'Classifica'}
@@ -57,12 +55,10 @@ function Home(props) {
             </View>
 
             <View
-                style={styles.container}
-                dataSet={{ media: ids.container }}
+                style={style.container}
             >
                 <Text
-                    style={styles.title}
-                    dataSet={{ media: ids.title }}
+                    style={style.title}
                 >
                     Sasso Carta Forbice
                 </Text>
@@ -72,8 +68,7 @@ function Home(props) {
                 />
 
                 <View
-                    style={styles.inputContainer}
-                    dataSet={{ media: ids.inputContainer }}
+                    style={style.inputContainer}
                 >
                     <CustomInputBox
                         placeholder={'Inserisci'}
@@ -86,8 +81,7 @@ function Home(props) {
                 </View>
 
                 <Text
-                    style={styles.penitence}
-                    dataSet={{ media: ids.penitence }}
+                    style={style.penitence}
                 >
                     {state.penitence}
                 </Text>
@@ -100,7 +94,7 @@ function Home(props) {
     );
 }
 
-const { ids, styles } = StyleSheet.create({
+const style = StyleSheet.create({
     header: {
         position: 'absolute',
         top: '20px',
@@ -108,22 +102,12 @@ const { ids, styles } = StyleSheet.create({
         flex: 1,
         justifyContent: 'flex-end',
         alignItems: 'flex-end',
-        '@media (min-width: 1000px)': {
-            position: 'absolute',
-            top: '50px',
-            right: '25px',
-            justifyContent: 'flex-end',
-            alignItems: 'flex-end',
-        },
     },
     container: {
         width: '90%',
         marginVertical: 0,
         marginHorizontal: 'auto',
         gap: '30px',
-        '@media (max-width: 767px)': {
-            width: '90%',
-        },
     },
     title: {
         marginTop: '50px',
@@ -131,9 +115,6 @@ const { ids, styles } = StyleSheet.create({
         color: '#3c5070',
         fontSize: '40px',
         textShadow: '1px 3px 0 #ffe4e5, 1px 13px 5px #ffe4e5',
-        '@media (min-width: 1000px)': {
-            fontSize: '60px',
-        },
     },
     inputContainer: {
         width: '100%',
@@ -144,17 +125,10 @@ const { ids, styles } = StyleSheet.create({
         justifyContent: 'center',
         gap: '20px',
         overflow: 'hidden',
-        '@media (max-width: 767px)': {
-            marginBottom: '10px',
-            flexDirection: 'column',
-        },
     },
     penitence: {
         color: 'white',
         fontSize: '25px',
-        '@media (min-width: 1000px)': {
-            fontSize: '35px',
-        },
     },
 })
 

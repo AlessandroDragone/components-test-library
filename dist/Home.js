@@ -7,7 +7,6 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 var _react = _interopRequireWildcard(require("react"));
 var _reactNative = require("react-native");
-var _reactNativeMediaQuery = _interopRequireDefault(require("react-native-media-query"));
 var _CustomButton = _interopRequireDefault(require("./CustomButton"));
 var _CustomInputBox = _interopRequireDefault(require("./CustomInputBox"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -43,30 +42,18 @@ function Home(props) {
     }
   };
   return /*#__PURE__*/_react.default.createElement(_reactNative.View, null, /*#__PURE__*/_react.default.createElement(_reactNative.View, {
-    style: styles.header,
-    dataSet: {
-      media: ids.header
-    }
+    style: style.header
   }, /*#__PURE__*/_react.default.createElement(_CustomButton.default, {
     label: 'Classifica',
     callback: nav
   })), /*#__PURE__*/_react.default.createElement(_reactNative.View, {
-    style: styles.container,
-    dataSet: {
-      media: ids.container
-    }
+    style: style.container
   }, /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
-    style: styles.title,
-    dataSet: {
-      media: ids.title
-    }
+    style: style.title
   }, "Sasso Carta Forbice"), /*#__PURE__*/_react.default.createElement(_reactNative.Image, {
     source: props.image
   }), /*#__PURE__*/_react.default.createElement(_reactNative.View, {
-    style: styles.inputContainer,
-    dataSet: {
-      media: ids.inputContainer
-    }
+    style: style.inputContainer
   }, /*#__PURE__*/_react.default.createElement(_CustomInputBox.default, {
     placeholder: 'Inserisci',
     callbackChange: setUsername
@@ -74,73 +61,48 @@ function Home(props) {
     label: "Gioca",
     callback: nav
   })), /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
-    style: styles.penitence,
-    dataSet: {
-      media: ids.penitence
-    }
+    style: style.penitence
   }, state.penitence), /*#__PURE__*/_react.default.createElement(_CustomButton.default, {
     label: "Genera penitenza casuale",
     callback: setPenitence
   })));
 }
-var _StyleSheet$create = _reactNativeMediaQuery.default.create({
-    header: {
-      position: 'absolute',
-      top: '20px',
-      right: '25px',
-      flex: 1,
-      justifyContent: 'flex-end',
-      alignItems: 'flex-end',
-      '@media (min-width: 1000px)': {
-        position: 'absolute',
-        top: '50px',
-        right: '25px',
-        justifyContent: 'flex-end',
-        alignItems: 'flex-end'
-      }
-    },
-    container: {
-      width: '90%',
-      marginVertical: 0,
-      marginHorizontal: 'auto',
-      gap: '30px',
-      '@media (max-width: 767px)': {
-        width: '90%'
-      }
-    },
-    title: {
-      marginTop: '50px',
-      paddingTop: '40px',
-      color: '#3c5070',
-      fontSize: '40px',
-      textShadow: '1px 3px 0 #ffe4e5, 1px 13px 5px #ffe4e5',
-      '@media (min-width: 1000px)': {
-        fontSize: '60px'
-      }
-    },
-    inputContainer: {
-      width: '100%',
-      marginVertical: 0,
-      marginHorizontal: 0,
-      flexDirection: 'row',
-      alignItems: 'center',
-      justifyContent: 'center',
-      gap: '20px',
-      overflow: 'hidden',
-      '@media (max-width: 767px)': {
-        marginBottom: '10px',
-        flexDirection: 'column'
-      }
-    },
-    penitence: {
-      color: 'white',
-      fontSize: '25px',
-      '@media (min-width: 1000px)': {
-        fontSize: '35px'
-      }
-    }
-  }),
-  ids = _StyleSheet$create.ids,
-  styles = _StyleSheet$create.styles;
+var style = _reactNative.StyleSheet.create({
+  header: {
+    position: 'absolute',
+    top: '20px',
+    right: '25px',
+    flex: 1,
+    justifyContent: 'flex-end',
+    alignItems: 'flex-end'
+  },
+  container: {
+    width: '90%',
+    marginVertical: 0,
+    marginHorizontal: 'auto',
+    gap: '30px'
+  },
+  title: {
+    marginTop: '50px',
+    paddingTop: '40px',
+    color: '#3c5070',
+    fontSize: '40px',
+    textShadow: '1px 3px 0 #ffe4e5, 1px 13px 5px #ffe4e5'
+  },
+  inputContainer: {
+    width: '100%',
+    marginVertical: 0,
+    marginHorizontal: 0,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: '20px',
+    overflow: 'hidden'
+  },
+  penitence: {
+    color: 'white',
+    fontSize: '25px'
+  }
+});
 var _default = Home;
 exports.default = _default;
