@@ -59,12 +59,14 @@ function Ranking(props) {
             <View style={mobile.table}>
 
                 <View style={mobile.row}>
-                    <h3>Rank</h3>
-                    <h3>Nickname</h3>
-                    <h3>Vittorie</h3>
-                    <h3>Sconfitte</h3>
-                    <h3>Match</h3>
+                    <Text style={mobile.textColumn}>Rank</Text>
+                    <Text style={mobile.textColumn}>Nickname</Text>
+                    <Text style={mobile.textColumn}>Vittorie</Text>
+                    <Text style={mobile.textColumn}>Sconfitte</Text>
+                    <Text style={mobile.textColumn}>Match</Text>
                 </View>
+
+                <View style={mobile.line} />
 
                 {data.map((d, key) => {
                     return (
@@ -73,24 +75,26 @@ function Ranking(props) {
                             key={key}
                         >
                             <View>
-                                <Text>{d.rank}</Text>
+                                <Text style={mobile.textRow}>{d.rank}</Text>
                             </View>
 
                             <View>
-                                <Text>{d.nickname}</Text>
+                                <Text style={mobile.textRow}>{d.nickname}</Text>
                             </View>
 
                             <View>
-                                <Text>{d.vittorie}</Text>
+                                <Text style={mobile.textRow}>{d.vittorie}</Text>
                             </View>
 
                             <View>
-                                <Text>{d.sconfitte}</Text>
+                                <Text style={mobile.textRow}>{d.sconfitte}</Text>
                             </View>
 
                             <View>
-                                <Text>{d.match}</Text>
+                                <Text style={mobile.textRow}>{d.match}</Text>
                             </View>
+
+                            <View style={mobile.line} />
                         </View>
                     )
 
@@ -107,14 +111,27 @@ function Ranking(props) {
 }
 
 const mobile = StyleSheet.create({
+    textColumn: {
+        width: '20%',
+        paddingVertical: 0,
+        paddingHorizontal: 7,
+        fontWeight: 'bold',
+        fontSize: 'medium',
+        textAlign: 'center',
+    },
+    textRow: {
+        width: '20%',
+        textAlign: 'center',
+    },
     table: {
         marginVertical: 15,
         marginHorizontal: 'auto',
         backgroundColor: '#f0f8ff',
         border: 'none',
-        shadowOffset: {height: 10, width: 15},
+        shadowOffset: { height: 10, width: 15 },
+        shadowRadius: 6,
         shadowColor: 'rgba(0, 0, 0, 0.349)',
-        borderRadius: '25',
+        borderRadius: 25,
         flex: 1,
         flexDirection: 'column',
         height: 'fit-content',
@@ -127,6 +144,13 @@ const mobile = StyleSheet.create({
         justifyContent: 'space-between',
         paddingVertical: 5,
         paddingHorizontal: 15,
+    },
+    line: {
+        marginVertical: 0,
+        marginHorizontal: 'auto',
+        width: '95%',
+        height: 2,
+        backgroundColor: 'lightgray',
     },
 });
 

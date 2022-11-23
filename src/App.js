@@ -3,6 +3,7 @@ import CustomInputBox from "./components/CustomInputBox";
 import { View } from "react-native";
 import { CustomButton } from "./components";
 import Home from "./components/Home";
+import Ranking from "./components/Ranking";
 
 function App() {
   function log(e) {
@@ -10,7 +11,7 @@ function App() {
   }
   return (
     <div className="App">
-      <Home />
+      <Ranking />
     </div>
   );
 }
