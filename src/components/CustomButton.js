@@ -1,10 +1,11 @@
 import React from "react";
 
-import { TouchableOpacity, Text } from "react-native";
+import { TouchableOpacity, Text, Platform } from "react-native";
 import StyleSheet from 'react-native-media-query';
 
 function CustomButton(props) {
     const handleClick = () => {
+        console.log(Platform)
         if (!!props.callback) {
             props.callback();
         }
