@@ -5,54 +5,53 @@ import CustomInputBox from "./CustomInputBox";
 import { useMediaQuery } from "react-responsive";
 
 const arrayPen = [
-    "Offri da bere a tutti",
-    "Bevi 2 shot di fila",
-    "Fai 10 piegamenti",
-    "Mangia un peperoncino intero",
-    "Dire uno scioglilingua",
-    "Contare a ritroso da 980 a 100",
-    "Salta la corda per 2 minuti",
-    "Mimare un proverbio",
-    "Imita il verso di 3 animali",
+  "Offri da bere a tutti",
+  "Bevi 2 shot di fila",
+  "Fai 10 piegamenti",
+  "Mangia un peperoncino intero",
+  "Dire uno scioglilingua",
+  "Contare a ritroso da 980 a 100",
+  "Salta la corda per 2 minuti",
+  "Mimare un proverbio",
+  "Imita il verso di 3 animali",
 ];
 
 function Home(props) {
+  const isDesktop = useMediaQuery({ minWidth: 992 });
 
-    const isDesktop = useMediaQuery({minWidth: 992})
+  const [state, setState] = useState({
+    penitence: arrayPen[0],
+  });
 
-    const [state, setState] = useState({
-        penitence: arrayPen[0],
-    })
+  let username = "";
 
-    let username = '';
+  const setUsername = (e) => {
+    username = e;
+  };
 
-    const setUsername = (e) => {
-        username = e
+  const setPenitence = () => {
+    let rand = Math.floor(Math.random() * arrayPen.length);
+
+    if (state.penitence !== arrayPen[rand]) {
+      setState({
+        penitence: arrayPen[rand],
+      });
+    } else {
+      setPenitence();
     }
+  };
 
-    const setPenitence = () => {
-        let rand = Math.floor(Math.random() * arrayPen.length);
-
-        if (state.penitence !== arrayPen[rand]) {
-            setState({
-                penitence: arrayPen[rand],
-            });
-        } else {
-            setPenitence();
-        }
+  const goToRanking = () => {
+    if (!!props.callbackRank) {
+      props.callbackRank();
     }
+  };
 
-    const goToRanking = () => {
-        if(!!props.callbackRank){
-            props.callbackRank();
-        }
+  const goToPlay = () => {
+    if (!!props.callbackPlay) {
+      props.callbackPlay();
     }
-
-    const goToPlay = () => {
-        if(!!props.callbackPlay){
-            props.callbackPlay();
-        }
-    }
+  };
 
     return (
         <View style={isDesktop ? [style.mainContainer, desktopStyle.mainContainer] : style.mainContainer}>
@@ -81,34 +80,28 @@ function Home(props) {
                 />
                 </View>
 
-                <View
-                    style={isDesktop ? [style.inputContainer, desktopStyle.inputContainer] : style.inputContainer}
-                >
-                    <CustomInputBox
-                        placeholder={'Inserisci'}
-                        callbackChange={setUsername}
-                        isDesktop={isDesktop}
-                    />
-                    <CustomButton
-                        label={"Gioca"}
-                        callback={goToPlay}
-                        isDesktop={isDesktop}
-                    />
-                </View>
-
-                <Text
-                    style={style.penitence}
-                >
-                    {state.penitence}
-                </Text>
-                <CustomButton
-                    label={"Genera penitenza casuale"}
-                    callback={setPenitence}
-                    isDesktop={isDesktop}
-                />
-            </View>
+        <View style={style.inputContainer}>
+          <CustomInputBox
+            placeholder={"Inserisci"}
+            callbackChange={setUsername}
+            isDesktop={isDesktop}
+          />
+          <CustomButton
+            label={"Gioca"}
+            callback={goToPlay}
+            isDesktop={isDesktop}
+          />
         </View>
-    );
+
+        <Text style={style.penitence}>{state.penitence}</Text>
+        <CustomButton
+          label={"Genera penitenza casuale"}
+          callback={setPenitence}
+          isDesktop={isDesktop}
+        />
+      </View>
+    </View>
+  );
 }
 
 const style = StyleSheet.create({
@@ -172,5 +165,3 @@ const desktopStyle = StyleSheet.create({
         width: '650px'
     }
 })
-
-export default Home
