@@ -77,6 +77,7 @@ function Home(props) {
 
                 <Image
                     source={props.image}
+                    style={style.image}
                 />
 
                 <View
@@ -145,6 +146,10 @@ const style = StyleSheet.create({
         color: 'white',
         fontSize: 25,
     },
+    image: {
+        width: 400,
+        height: 400,
+    }
 })
 
 const desktopStyle = StyleSheet.create({

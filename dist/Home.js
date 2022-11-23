@@ -9,6 +9,7 @@ var _react = _interopRequireWildcard(require("react"));
 var _reactNative = require("react-native");
 var _CustomButton = _interopRequireDefault(require("./CustomButton"));
 var _CustomInputBox = _interopRequireDefault(require("./CustomInputBox"));
+var _reactResponsive = require("react-responsive");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
@@ -20,6 +21,9 @@ function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Sy
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 var arrayPen = ["Offri da bere a tutti", "Bevi 2 shot di fila", "Fai 10 piegamenti", "Mangia un peperoncino intero", "Dire uno scioglilingua", "Contare a ritroso da 980 a 100", "Salta la corda per 2 minuti", "Mimare un proverbio", "Imita il verso di 3 animali"];
 function Home(props) {
+  var isDesktop = (0, _reactResponsive.useMediaQuery)({
+    minWidth: 992
+  });
   var _useState = (0, _react.useState)({
       penitence: arrayPen[0]
     }),
@@ -27,7 +31,6 @@ function Home(props) {
     state = _useState2[0],
     setState = _useState2[1];
   var username = '';
-  var nav = function nav() {};
   var setUsername = function setUsername(e) {
     username = e;
   };
@@ -41,35 +44,51 @@ function Home(props) {
       setPenitence();
     }
   };
+  var goToRanking = function goToRanking() {
+    if (!!props.callbackRank) {
+      props.callbackRank();
+    }
+  };
+  var goToPlay = function goToPlay() {
+    if (!!props.callbackPlay) {
+      props.callbackPlay();
+    }
+  };
   return /*#__PURE__*/_react.default.createElement(_reactNative.View, null, /*#__PURE__*/_react.default.createElement(_reactNative.View, {
     style: style.header
   }, /*#__PURE__*/_react.default.createElement(_CustomButton.default, {
     label: 'Classifica',
-    callback: nav
+    callback: goToRanking,
+    isDesktop: isDesktop
   })), /*#__PURE__*/_react.default.createElement(_reactNative.View, {
     style: style.container
   }, /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
     style: style.title
   }, "Sasso Carta Forbice"), /*#__PURE__*/_react.default.createElement(_reactNative.Image, {
-    source: props.image
+    source: props.image,
+    style: style.image
   }), /*#__PURE__*/_react.default.createElement(_reactNative.View, {
-    style: style.inputContainer
+    style: isDesktop ? [style.inputContainer, desktopStyle.inputContainer] : style.inputContainer
   }, /*#__PURE__*/_react.default.createElement(_CustomInputBox.default, {
     placeholder: 'Inserisci',
-    callbackChange: setUsername
+    callbackChange: setUsername,
+    isDesktop: isDesktop
   }), /*#__PURE__*/_react.default.createElement(_CustomButton.default, {
     label: "Gioca",
-    callback: nav
+    callback: goToPlay,
+    isDesktop: isDesktop
   })), /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
     style: style.penitence
   }, state.penitence), /*#__PURE__*/_react.default.createElement(_CustomButton.default, {
     label: "Genera penitenza casuale",
-    callback: setPenitence
+    callback: setPenitence,
+    isDesktop: isDesktop
   })));
 }
 var style = _reactNative.StyleSheet.create({
   header: {
     position: 'absolute',
+    zIndex: 1,
     top: 20,
     right: 25,
     flex: 1,
@@ -92,7 +111,7 @@ var style = _reactNative.StyleSheet.create({
     width: '100%',
     marginVertical: 0,
     marginHorizontal: 0,
-    flexDirection: 'row',
+    flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
     gap: 20,
@@ -101,6 +120,15 @@ var style = _reactNative.StyleSheet.create({
   penitence: {
     color: 'white',
     fontSize: 25
+  },
+  image: {
+    width: 400,
+    height: 400
+  }
+});
+var desktopStyle = _reactNative.StyleSheet.create({
+  inputContainer: {
+    flexDirection: 'row'
   }
 });
 var _default = Home;
