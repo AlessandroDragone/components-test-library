@@ -31,7 +31,7 @@ function Play(props) {
       cpuPoint: 0,
       playerPoint: 0,
       playerChoice: null,
-      CPUChoice: null
+      resultMessage: ""
     }),
     _useState2 = _slicedToArray(_useState, 2),
     state = _useState2[0],
@@ -65,15 +65,46 @@ function Play(props) {
   function confirmChoice() {
     var IAchoice = handleIAPlay();
     var result = res[IAchoice][state.playerChoice];
+    var playerPoint = state.playerPoint;
+    var cpuPoint = state.cpuPoint;
+    var message = "";
+    switch (result) {
+      case "w":
+        playerPoint++;
+        message = "Hai vinto!";
+        break;
+      case "l":
+        cpuPoint++;
+        message = "Hai perso!";
+        break;
+      default:
+        message = "Pareggio!";
+        break;
+    }
     console.log(state.playerChoice, IAchoice, result);
+    setState(_objectSpread(_objectSpread({}, state), {}, {
+      resultMessage: message,
+      playerPoint: playerPoint,
+      cpuPoint: cpuPoint,
+      playerChoice: null
+    }));
   }
+  (0, _react.useEffect)(function () {
+    var result = {
+      cpu: state.cpuPoint,
+      playerPoint: state.playerPoint
+    };
+    if (state.cpuPoint === 3 || state.playerPoint === 3) {
+      //   props.callbackResult(result);
+    }
+  }, [state]);
   return /*#__PURE__*/_react.default.createElement(_reactNative.View, {
     style: style.container
   }, /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
     style: style.title
   }, "Sasso Carta Forbice"), /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
     style: [style.text, style.score]
-  }, "Punteggio: ", props.username, " ", state.playerPoint, " - ", state.playerPoint, "CPU"), /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
+  }, "Punteggio: ", props.username, " ", state.playerPoint, " - ", state.cpuPoint, " CPU"), /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
     style: style.text
   }, "Scegli la tua giocata:"), /*#__PURE__*/_react.default.createElement(_reactNative.View, {
     style: style.iconContainer
@@ -81,30 +112,23 @@ function Play(props) {
     isDesktop: isDesktop,
     value: 0,
     callback: handleChoice
-  }, /*#__PURE__*/_react.default.createElement(_gi.GiPaper, {
-    color: "pink",
-    size: isDesktop ? 100 : 80
-  })), /*#__PURE__*/_react.default.createElement(_IconButton.default, {
+  }, props.paper), /*#__PURE__*/_react.default.createElement(_IconButton.default, {
     isDesktop: isDesktop,
     value: 1,
     callback: handleChoice
-  }, /*#__PURE__*/_react.default.createElement(_gi.GiScissors, {
-    color: "pink",
-    size: isDesktop ? 100 : 80
-  })), /*#__PURE__*/_react.default.createElement(_IconButton.default, {
+  }, props.scissor), /*#__PURE__*/_react.default.createElement(_IconButton.default, {
     isDesktop: isDesktop,
     value: 2,
     callback: handleChoice
-  }, /*#__PURE__*/_react.default.createElement(_gi.GiRock, {
-    color: "pink",
-    size: isDesktop ? 100 : 80
-  }))), /*#__PURE__*/_react.default.createElement(_reactNative.View, {
+  }, props.rock)), /*#__PURE__*/_react.default.createElement(_reactNative.View, {
     style: style.button
   }, /*#__PURE__*/_react.default.createElement(_CustomButton.default, {
     label: "Conferma",
     callback: confirmChoice,
     disable: state.playerChoice !== null ? false : true
-  })));
+  })), /*#__PURE__*/_react.default.createElement(_reactNative.View, null, /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
+    style: [style.text, style.score]
+  }, state.resultMessage)));
 }
 var style = _reactNative.StyleSheet.create({
   container: {
@@ -122,7 +146,7 @@ var style = _reactNative.StyleSheet.create({
     fontSize: 35
   },
   text: {
-    marginVertical: 30,
+    marginVertical: 20,
     color: "white",
     fontSize: 25
   },

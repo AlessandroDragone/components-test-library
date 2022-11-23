@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import { StyleSheet, View, Text, ScrollView } from "react-native";
-import CustomButton from "components-test-library/dist/CustomButton";
+import CustomButton from "./CustomButton";
 import { useMediaQuery } from "react-responsive";
 
 function Ranking(props) {
