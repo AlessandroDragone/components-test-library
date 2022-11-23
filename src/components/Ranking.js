@@ -124,7 +124,6 @@ function Ranking(props) {
                 Ranking
             </Text>
             <View style={mobile.scrollViewContainer}>
-            <ScrollView style={mobile.table}>
 
                 <View style={mobile.row}>
                     <View style={mobile.viewRow}>
@@ -144,6 +143,7 @@ function Ranking(props) {
                     </View>
                 </View>
 
+            <ScrollView style={mobile.table}>
                 {data.map((d, key) => {
                     return (
                         <View key={key}>
@@ -201,10 +201,12 @@ const mobile = StyleSheet.create({
         shadowRadius: 6,
         shadowColor: 'rgba(0, 0, 0, 0.349)',
         borderRadius: 25,
+        marginBottom: 25
     },
     title: {
         fontWeight: 'bold',
         fontSize: 28,
+        marginBottom: 25
     },
     textColumn: {
         paddingHorizontal: 7,
@@ -238,17 +240,18 @@ const mobile = StyleSheet.create({
         backgroundColor: 'lightgray',
     },
     gameTitle: {
-        marginTop: 50,
-        marginBottom: 50,
+        marginTop: 30,
+        marginBottom: 30,
         paddingTop: 20,
         color: '#3c5070',
         fontSize: 40,
         textShadowOffset: { width: 3, height: 1 },
-        textShadowColor: '#ffe4e5'
+        textShadowColor: '#ffe4e5',
+        textAlign: 'center'
     },
     header: {
         position: 'absolute',
-        top: 20,
+        top: 30,
         right: 25,
         flex: 1,
         justifyContent: 'flex-end',
