@@ -1,6 +1,6 @@
 import React from "react";
 
-import { TouchableOpacity, Text, Platform, StyleSheet } from "react-native";
+import { TouchableOpacity, Text, Platform, StyleSheet, View } from "react-native";
 
 function CustomButton(props) {
     const handleClick = () => {
@@ -11,14 +11,16 @@ function CustomButton(props) {
 
     return (
         <TouchableOpacity
-            style={props.isDesktop ? [mobile.button, desktop.button] : mobile.button}
+            style={mobile.button}
             onPress={handleClick}
         >
+            <View>
             <Text
-                style={[mobile.text, desktop.text]}
+                style={mobile.text}
             >
                 {props.label}
             </Text>
+            </View>
         </TouchableOpacity>
     );
 }
@@ -28,10 +30,6 @@ CustomButton.defaultProps = {
 };
 
 const mobile = StyleSheet.create({
-    
-});
-
-const desktop = StyleSheet.create({
     button: {
         backgroundColor: "#2F4858",
         border: "none",
@@ -41,9 +39,10 @@ const desktop = StyleSheet.create({
     },
     text: {
         fontWeight: "bold",
-        fontSize: 20,
+        fontSize: 15,
         color: "white",
     },
-})
+});
+
 
 export default CustomButton;

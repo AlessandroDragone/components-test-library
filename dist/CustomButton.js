@@ -17,16 +17,16 @@ function CustomButton(props) {
     }
   };
   return /*#__PURE__*/_react.default.createElement(_reactNative.TouchableOpacity, {
-    style: style.button,
+    style: mobile.button,
     onPress: handleClick
-  }, /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
-    style: style.text
-  }, props.label));
+  }, /*#__PURE__*/_react.default.createElement(_reactNative.View, null, /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
+    style: mobile.text
+  }, props.label)));
 }
 CustomButton.defaultProps = {
   label: "Click"
 };
-var style = _reactNative.StyleSheet.create({
+var mobile = _reactNative.StyleSheet.create({
   button: {
     backgroundColor: "#2F4858",
     border: "none",
@@ -36,7 +36,7 @@ var style = _reactNative.StyleSheet.create({
   },
   text: {
     fontWeight: "bold",
-    fontSize: 20,
+    fontSize: 15,
     color: "white"
   }
 });

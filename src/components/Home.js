@@ -128,5 +128,3 @@ const style = StyleSheet.create({
     fontSize: 25,
   },
 });
-
-export default Home;
