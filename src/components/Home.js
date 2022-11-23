@@ -165,3 +165,6 @@ const desktopStyle = StyleSheet.create({
         width: '650px'
     }
 })
+
+
+export default Home
