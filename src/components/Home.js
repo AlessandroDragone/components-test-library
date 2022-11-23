@@ -26,10 +26,6 @@ function Home(props) {
 
     let username = '';
 
-    const nav = () => {
-
-    }
-
     const setUsername = (e) => {
         username = e
     }
@@ -46,6 +42,18 @@ function Home(props) {
         }
     }
 
+    const goToRanking = () => {
+        if(!!props.callbackRank){
+            props.callbackRank();
+        }
+    }
+
+    const goToPlay = () => {
+        if(!!props.callbackPlay){
+            props.callbackPlay();
+        }
+    }
+
     return (
         <View>
             <View
@@ -53,7 +61,7 @@ function Home(props) {
             >
                 <CustomButton
                     label={'Classifica'}
-                    callback={nav}
+                    callback={goToRanking}
                     isDesktop={isDesktop}
                 />
             </View>
@@ -81,7 +89,7 @@ function Home(props) {
                     />
                     <CustomButton
                         label={"Gioca"}
-                        callback={nav}
+                        callback={goToPlay}
                         isDesktop={isDesktop}
                     />
                 </View>
