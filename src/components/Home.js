@@ -55,7 +55,7 @@ function Home(props) {
     }
 
     return (
-        <View>
+        <View style={isDesktop ? [style.mainContainer, desktopStyle.mainContainer] : style.mainContainer}>
             <View
                 style={style.header}
             >
@@ -74,10 +74,12 @@ function Home(props) {
                 >
                     Sasso Carta Forbice
                 </Text>
-
+                <View style={style.imageContainer}>
                 <Image
+                    style={isDesktop ? [style.image, desktopStyle.image] : style.image}
                     source={props.image}
                 />
+                </View>
 
                 <View
                     style={isDesktop ? [style.inputContainer, desktopStyle.inputContainer] : style.inputContainer}
@@ -110,6 +112,17 @@ function Home(props) {
 }
 
 const style = StyleSheet.create({
+    mainContainer: {
+        flex:1,
+        marginTop: 15
+    },  
+    imageContainer: {
+        width: '100%',
+    },  
+    image: {
+        width: Dimensions.get('window').width,
+        height: 300,
+    },
     header: {
         position: 'absolute',
         zIndex: 1,
@@ -123,13 +136,13 @@ const style = StyleSheet.create({
         flex: 1,
         marginVertical: 0,
         marginHorizontal: 'auto',
-        gap: 30,
     },
     title: {
         marginTop: 50,
         paddingTop: 40,
         color: '#3c5070',
         fontSize: 40,
+        textAlign: 'center'
     },
     inputContainer: {
         width: '100%',
@@ -144,12 +157,19 @@ const style = StyleSheet.create({
     penitence: {
         color: 'white',
         fontSize: 25,
+        textAlign: 'center'
     },
 })
 
 const desktopStyle = StyleSheet.create({
     inputContainer: {
         flexDirection: 'row'
+    },
+    image: {
+        width: '500px'
+    },
+    mainContainer: {
+        width: '650px'
     }
 })
 
