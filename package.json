@@ -1,6 +1,6 @@
 {
   "name": "components-test-library",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "main": "dist/index.js",
   "private": false,
   "files": [
@@ -12,7 +12,6 @@
     "url": "https://github.com/AlessandroDragone/components-test-library"
   },
   "dependencies": {
-    "@react-navigation/web": "^1.0.0-alpha.9",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",

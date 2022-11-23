@@ -36,7 +36,6 @@ var style = _reactNative.StyleSheet.create({
   },
   text: {
     fontWeight: "bold",
-    fontFamily: "combo",
     fontSize: "20px",
     color: "white"
   }
