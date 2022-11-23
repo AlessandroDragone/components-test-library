@@ -8,18 +8,6 @@ function Ranking(props) {
 
     const isDesktop = useMediaQuery({ minWidth: 992 })
 
-    const renderRow = () => {
-        return (
-            <View style={{ flex: 1, alignSelf: 'stretch', flexDirection: 'row' }}>
-                <View style={{ flex: 1, alignSelf: 'stretch' }} />
-                <View style={{ flex: 1, alignSelf: 'stretch' }} />
-                <View style={{ flex: 1, alignSelf: 'stretch' }} />
-                <View style={{ flex: 1, alignSelf: 'stretch' }} />
-                <View style={{ flex: 1, alignSelf: 'stretch' }} />
-            </View>
-        );
-    }
-
     const goToHome = () => {
         if (!!props.callbackHome) {
             props.callbackHome();
@@ -51,50 +39,73 @@ function Ranking(props) {
     ];
 
     return (
-        <View>
-            <Text>
+        <View style={isDesktop ? [mobile.rankingContainer, desktop.rankingContainer] : mobile.rankingContainer}>
+
+            <View
+                style={mobile.header}
+            >
+                <CustomButton
+                    label={'Classifica'}
+                    callback={goToHome}
+                    isDesktop={isDesktop}
+                />
+            </View>
+
+            <Text
+                style={mobile.gameTitle}
+            >
+                Sasso Carta Forbice
+            </Text>
+
+            <Text style={mobile.title}>
                 Ranking
             </Text>
 
             <View style={mobile.table}>
 
                 <View style={mobile.row}>
-                    <Text style={mobile.textColumn}>Rank</Text>
-                    <Text style={mobile.textColumn}>Nickname</Text>
-                    <Text style={mobile.textColumn}>Vittorie</Text>
-                    <Text style={mobile.textColumn}>Sconfitte</Text>
-                    <Text style={mobile.textColumn}>Match</Text>
+                    <View style={mobile.viewRow}>
+                        <Text style={isDesktop ? [mobile.textColumn, desktop.textColumn] : mobile.textColumn}>Rank</Text>
+                    </View>
+                    <View style={mobile.viewRow}>
+                        <Text style={isDesktop ? [mobile.textColumn, desktop.textColumn] : mobile.textColumn}>Nickname</Text>
+                    </View>
+                    <View style={mobile.viewRow}>
+                        <Text style={isDesktop ? [mobile.textColumn, desktop.textColumn] : mobile.textColumn}>Vittorie</Text>
+                    </View>
+                    <View style={mobile.viewRow}>
+                        <Text style={isDesktop ? [mobile.textColumn, desktop.textColumn] : mobile.textColumn}>Sconfitte</Text>
+                    </View>
+                    <View style={mobile.viewRow}>
+                        <Text style={isDesktop ? [mobile.textColumn, desktop.textColumn] : mobile.textColumn}>Match</Text>
+                    </View>
                 </View>
-
-                <View style={mobile.line} />
 
                 {data.map((d, key) => {
                     return (
-                        <View
-                            style={mobile.row}
-                            key={key}
-                        >
-                            <View>
-                                <Text style={mobile.textRow}>{d.rank}</Text>
-                            </View>
-
-                            <View>
-                                <Text style={mobile.textRow}>{d.nickname}</Text>
-                            </View>
-
-                            <View>
-                                <Text style={mobile.textRow}>{d.vittorie}</Text>
-                            </View>
-
-                            <View>
-                                <Text style={mobile.textRow}>{d.sconfitte}</Text>
-                            </View>
-
-                            <View>
-                                <Text style={mobile.textRow}>{d.match}</Text>
-                            </View>
-
+                        <View key={key}>
                             <View style={mobile.line} />
+                            <View style={mobile.row}>
+                                <View style={mobile.viewRow}>
+                                    <Text style={isDesktop ? [mobile.textRow, desktop.textRow] : mobile.textRow}>{d.rank}</Text>
+                                </View>
+
+                                <View style={mobile.viewRow}>
+                                    <Text style={isDesktop ? [mobile.textRow, desktop.textRow] : mobile.textRow}>{d.nickname}</Text>
+                                </View>
+
+                                <View style={mobile.viewRow}>
+                                    <Text style={isDesktop ? [mobile.textRow, desktop.textRow] : mobile.textRow}>{d.vittorie}</Text>
+                                </View>
+
+                                <View style={mobile.viewRow}>
+                                    <Text style={isDesktop ? [mobile.textRow, desktop.textRow] : mobile.textRow}>{d.sconfitte}</Text>
+                                </View>
+
+                                <View style={mobile.viewRow}>
+                                    <Text style={isDesktop ? [mobile.textRow, desktop.textRow] : mobile.textRow}>{d.match}</Text>
+                                </View>
+                            </View>
                         </View>
                     )
 
@@ -111,17 +122,28 @@ function Ranking(props) {
 }
 
 const mobile = StyleSheet.create({
+    rankingContainer: {
+        flex: 1,
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    title: {
+        fontWeight: 'bold',
+        fontSize: 28,
+    },
     textColumn: {
-        width: '20%',
-        paddingVertical: 0,
         paddingHorizontal: 7,
         fontWeight: 'bold',
-        fontSize: 'medium',
+        fontSize: 12,
         textAlign: 'center',
     },
     textRow: {
-        width: '20%',
+        fontSize: 'small',
         textAlign: 'center',
+    },
+    viewRow: {
+        width: '20%',
     },
     table: {
         marginVertical: 15,
@@ -135,15 +157,12 @@ const mobile = StyleSheet.create({
         flex: 1,
         flexDirection: 'column',
         height: 'fit-content',
-        width: 'fit-content',
-        minWidth: '25%',
-        maxWidth: '95%',
+        width: '95%',
     },
     row: {
-        flex: 1,
+        flexDirection: 'row',
         justifyContent: 'space-between',
-        paddingVertical: 5,
-        paddingHorizontal: 15,
+        paddingVertical: 15,
     },
     line: {
         marginVertical: 0,
@@ -152,10 +171,37 @@ const mobile = StyleSheet.create({
         height: 2,
         backgroundColor: 'lightgray',
     },
+    gameTitle: {
+        marginTop: 50,
+        marginBottom: 50,
+        paddingTop: 20,
+        color: '#3c5070',
+        fontSize: 40,
+        textShadowOffset: { width: 3, height: 1 },
+        textShadowColor: '#ffe4e5'
+    },
+    header: {
+        position: 'absolute',
+        top: 20,
+        right: 25,
+        flex: 1,
+        justifyContent: 'flex-end',
+        alignItems: 'flex-end',
+    },
 });
 
 const desktop = StyleSheet.create({
-
+    textColumn: {
+        fontSize: 'medium',
+    },
+    textRow: {
+        fontSize: 'medium',
+    },
+    rankingContainer: {
+        width: 650,
+        marginVertical: 0,
+        marginHorizontal: 'auto',
+    },
 })
 
 export default Ranking
