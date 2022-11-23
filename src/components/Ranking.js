@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { StyleSheet, View, Text } from "react-native";
+import { StyleSheet, View, Text, ScrollView } from "react-native";
 import CustomButton from "./CustomButton";
 import { useMediaQuery } from "react-responsive";
 
@@ -61,7 +61,7 @@ function Ranking(props) {
                 Ranking
             </Text>
 
-            <View style={mobile.table}>
+            <ScrollView style={mobile.table}>
 
                 <View style={mobile.row}>
                     <View style={mobile.viewRow}>
@@ -110,7 +110,7 @@ function Ranking(props) {
                     )
 
                 })}
-            </View>
+            </ScrollView>
 
             <CustomButton
                 label={'Gioca'}
@@ -139,7 +139,7 @@ const mobile = StyleSheet.create({
         textAlign: 'center',
     },
     textRow: {
-        fontSize: 'small',
+        fontSize: 12,
         textAlign: 'center',
     },
     viewRow: {
@@ -156,7 +156,6 @@ const mobile = StyleSheet.create({
         borderRadius: 25,
         flex: 1,
         flexDirection: 'column',
-        height: 'fit-content',
         width: '95%',
     },
     row: {
