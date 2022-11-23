@@ -15,6 +15,20 @@ Object.defineProperty(exports, "CustomInputBox", {
     return _CustomInputBox.default;
   }
 });
+Object.defineProperty(exports, "Home", {
+  enumerable: true,
+  get: function get() {
+    return _Home.default;
+  }
+});
+Object.defineProperty(exports, "Play", {
+  enumerable: true,
+  get: function get() {
+    return _Play.default;
+  }
+});
 var _CustomButton = _interopRequireDefault(require("./CustomButton"));
 var _CustomInputBox = _interopRequireDefault(require("./CustomInputBox"));
+var _Home = _interopRequireDefault(require("./Home"));
+var _Play = _interopRequireDefault(require("./Play"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }

@@ -5,7 +5,10 @@ import StyleSheet from 'react-native-media-query';
 
 function CustomButton(props) {
     const handleClick = () => {
-        console.log(Platform)
+        if (!!props.callbackLog) {
+            props.callbackLog(Platform.OS)
+        }
+        
         if (!!props.callback) {
             props.callback();
         }
@@ -31,7 +34,7 @@ CustomButton.defaultProps = {
     label: "Click",
 };
 
-const {ids, styles} = StyleSheet.create({
+const { ids, styles } = StyleSheet.create({
     button: {
         backgroundColor: "#2F4858",
         border: "none",

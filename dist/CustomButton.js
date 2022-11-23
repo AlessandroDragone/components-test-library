@@ -10,7 +10,9 @@ var _reactNativeMediaQuery = _interopRequireDefault(require("react-native-media-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 function CustomButton(props) {
   var handleClick = function handleClick() {
-    console.log(_reactNative.Platform);
+    if (!!props.callbackLog) {
+      props.callbackLog(_reactNative.Platform.OS);
+    }
     if (!!props.callback) {
       props.callback();
     }
