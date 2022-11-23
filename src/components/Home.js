@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, Image, StyleSheet, Dimensions } from "react-native";
+import { View, Text, Image, StyleSheet, Dimensions, StatusBar } from "react-native";
 import CustomButton from "./CustomButton";
 import CustomInputBox from "./CustomInputBox";
 import { useMediaQuery } from "react-responsive";
@@ -107,7 +107,8 @@ function Home(props) {
 const style = StyleSheet.create({
     mainContainer: {
         flex:1,
-        marginTop: 15
+        marginTop: 15,
+        height: StatusBar.currentHeight - 15,
     },  
     imageContainer: {
         width: '100%',

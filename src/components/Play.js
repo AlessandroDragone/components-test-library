@@ -62,7 +62,7 @@ function Play(props) {
     <View style={style.container}>
       <Text style={style.title}>Sasso Carta Forbice</Text>
       <Text style={[style.text, style.score]}>
-        Punteggio: {props.username} {state.playerPoint} - {state.playerPoint}{" "}
+        Punteggio: {props.username} {state.playerPoint} - {state.playerPoint} 
         CPU
       </Text>
       <Text style={style.text}>Scegli la tua giocata:</Text>
