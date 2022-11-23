@@ -17,7 +17,7 @@ const arrayPen = [
 ];
 
 function Home(props) {
-  const isDesktop = useMediaQuery({ minWidth: 992 });
+  const isDesktop = useMediaQuery({ minWidth: 650 });
 
   const [state, setState] = useState({
     penitence: arrayPen[0],
@@ -107,14 +107,13 @@ function Home(props) {
 const style = StyleSheet.create({
     mainContainer: {
         flex:1,
-        marginTop: 15,
-        height: StatusBar.currentHeight - 15,
+        paddingTop: 20,
     },  
     imageContainer: {
         width: '100%',
     },  
     image: {
-        width: Dimensions.get('window').width,
+        width: '100%',
         height: 300,
     },
     header: {
@@ -151,20 +150,23 @@ const style = StyleSheet.create({
     penitence: {
         color: 'white',
         fontSize: 25,
-        textAlign: 'center'
+        textAlign: 'center',
+        marginBottom: 20,
+        marginTop: 25,
     },
 })
 
 const desktopStyle = StyleSheet.create({
+    mainContainer:{
+        marginHorizontal: 'auto',
+        width: '650px'
+    },
     inputContainer: {
         flexDirection: 'row'
     },
     image: {
         width: '500px'
     },
-    mainContainer: {
-        width: '650px'
-    }
 })
 
 
