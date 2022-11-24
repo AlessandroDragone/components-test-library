@@ -9,7 +9,7 @@ function CustomInputBox(props) {
 
   function changeInput(e) {
     setState({
-      value: e,
+      value: e.toUpperCase(),
     });
 
     if (!!props.callbackChange) props.callbackChange(e);
@@ -22,6 +22,7 @@ function CustomInputBox(props) {
       onChangeText={changeInput}
       value={state.value}
       placeholderTextColor={"grey"}
+      
     />
   );
 }

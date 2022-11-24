@@ -87,7 +87,7 @@ function Home(props) {
 
         <View style={style.inputContainer}>
           <CustomInputBox
-            placeholder={"Inserisci"}
+            placeholder={"Inserisci un nickname"}
             callbackChange={setUsername}
             isDesktop={isDesktop}
             style={style.inputBox}
