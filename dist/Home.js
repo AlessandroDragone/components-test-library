@@ -84,16 +84,19 @@ function Home(props) {
     isDesktop: isDesktop
   })), /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
     style: style.penitence
-  }, state.penitence), /*#__PURE__*/_react.default.createElement(_CustomButton.default, {
+  }, state.penitence), /*#__PURE__*/_react.default.createElement(_reactNative.View, {
+    style: style.penitenceButton
+  }, /*#__PURE__*/_react.default.createElement(_CustomButton.default, {
     label: "Genera penitenza casuale",
     callback: setPenitence,
     isDesktop: isDesktop
-  })));
+  }))));
 }
 var style = _reactNative.StyleSheet.create({
   mainContainer: {
     flex: 1,
-    marginTop: 15
+    marginTop: 15,
+    width: '100%'
   },
   imageContainer: {
     width: '100%'
@@ -141,6 +144,9 @@ var style = _reactNative.StyleSheet.create({
     fontSize: 25,
     textAlign: 'center',
     marginVertical: 15
+  },
+  penitenceButton: {
+    width: 120
   }
 });
 var desktopStyle = _reactNative.StyleSheet.create({
@@ -153,6 +159,9 @@ var desktopStyle = _reactNative.StyleSheet.create({
   },
   image: {
     width: '500px'
+  },
+  penitenceButton: {
+    width: 'fit-content'
   }
 });
 var _default = Home;
