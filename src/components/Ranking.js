@@ -14,30 +14,6 @@ function Ranking(props) {
         }
     }
 
-    const data = [
-        {
-            rank: 1,
-            nickname: 'alex',
-            vittorie: 1,
-            sconfitte: 2,
-            match: 3
-        },
-        {
-            rank: 2,
-            nickname: 'marco',
-            vittorie: 1,
-            sconfitte: 2,
-            match: 3
-        },
-        {
-            rank: 3,
-            nickname: 'gianluca',
-            vittorie: 1,
-            sconfitte: 2,
-            match: 3
-        },
-    ];
-
     return (
         <View style={isDesktop ? [mobile.rankingContainer, desktop.rankingContainer] : mobile.rankingContainer}>
 
@@ -71,35 +47,36 @@ function Ranking(props) {
                     </View>
                 </View>
 
-                {data.map((d, key) => {
-                    return (
-                        <View key={key}>
-                            <View style={mobile.line} />
-                            <View style={mobile.row}>
-                                <View style={mobile.viewRow}>
-                                    <Text style={isDesktop ? [mobile.textRow, desktop.textRow] : mobile.textRow}>{d.rank}</Text>
-                                </View>
+                {!!props.data &&
+                    props.data.map((d, key) => {
+                        return (
+                            <View key={key}>
+                                <View style={mobile.line} />
+                                <View style={mobile.row}>
+                                    <View style={mobile.viewRow}>
+                                        <Text style={isDesktop ? [mobile.textRow, desktop.textRow] : mobile.textRow}>{d.rank}</Text>
+                                    </View>
 
-                                <View style={mobile.viewRow}>
-                                    <Text style={isDesktop ? [mobile.textRow, desktop.textRow] : mobile.textRow}>{d.nickname}</Text>
-                                </View>
+                                    <View style={mobile.viewRow}>
+                                        <Text style={isDesktop ? [mobile.textRow, desktop.textRow] : mobile.textRow}>{d.nickname}</Text>
+                                    </View>
 
-                                <View style={mobile.viewRow}>
-                                    <Text style={isDesktop ? [mobile.textRow, desktop.textRow] : mobile.textRow}>{d.vittorie}</Text>
-                                </View>
+                                    <View style={mobile.viewRow}>
+                                        <Text style={isDesktop ? [mobile.textRow, desktop.textRow] : mobile.textRow}>{d.vittorie}</Text>
+                                    </View>
 
-                                <View style={mobile.viewRow}>
-                                    <Text style={isDesktop ? [mobile.textRow, desktop.textRow] : mobile.textRow}>{d.sconfitte}</Text>
-                                </View>
+                                    <View style={mobile.viewRow}>
+                                        <Text style={isDesktop ? [mobile.textRow, desktop.textRow] : mobile.textRow}>{d.sconfitte}</Text>
+                                    </View>
 
-                                <View style={mobile.viewRow}>
-                                    <Text style={isDesktop ? [mobile.textRow, desktop.textRow] : mobile.textRow}>{d.match}</Text>
+                                    <View style={mobile.viewRow}>
+                                        <Text style={isDesktop ? [mobile.textRow, desktop.textRow] : mobile.textRow}>{d.match}</Text>
+                                    </View>
                                 </View>
                             </View>
-                        </View>
-                    )
+                        )
 
-                })}
+                    })}
             </ScrollView>
 
             <CustomButton
