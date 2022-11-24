@@ -64,7 +64,7 @@ function Ranking(props) {
       style: mobile.viewRow
     }, /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
       style: isDesktop ? [mobile.textRow, desktop.textRow] : mobile.textRow
-    }, d.rank)), /*#__PURE__*/_react.default.createElement(_reactNative.View, {
+    }, "#", key + 1)), /*#__PURE__*/_react.default.createElement(_reactNative.View, {
       style: mobile.viewRow
     }, /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
       style: isDesktop ? [mobile.textRow, desktop.textRow] : mobile.textRow
