@@ -116,7 +116,7 @@ const mobile = StyleSheet.create({
         alignItems: 'center',
         marginVertical: 0,
         marginHorizontal: 'auto',
-        marginTop: '120',
+        marginTop: 120,
         textAlign: 'center',
     },
     imgContainer: {
