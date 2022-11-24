@@ -8,14 +8,14 @@ import { useMediaQuery } from "react-responsive";
 import Ranking from "./components/Ranking";
 
 function App() {
-  const isDesktop = useMediaQuery({ minWidth: 992 });
+  const isDesktop = useMediaQuery({ minWidth: 650 });
 
   function log(e) {
     console.log(e);
   }
   return (
     <div className="App">
-      <Play username={"marco"} />
+      <Home />
     </div>
   );
 }

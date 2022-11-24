@@ -6,7 +6,7 @@ import { useMediaQuery } from "react-responsive";
 
 function Ranking(props) {
 
-    const isDesktop = useMediaQuery({ minWidth: 992 })
+    const isDesktop = useMediaQuery({ minWidth: 650 })
 
     const goToHome = () => {
         if (!!props.callbackHome) {
@@ -26,8 +26,7 @@ function Ranking(props) {
             <Text style={mobile.title}>
                 Ranking
             </Text>
-
-            <ScrollView style={mobile.table}>
+            <View style={mobile.scrollViewContainer}>
 
                 <View style={mobile.row}>
                     <View style={mobile.viewRow}>
@@ -47,6 +46,7 @@ function Ranking(props) {
                     </View>
                 </View>
 
+            <ScrollView style={mobile.table}>
                 {!!props.data &&
                     props.data.map((d, key) => {
                         return (
@@ -78,6 +78,7 @@ function Ranking(props) {
 
                     })}
             </ScrollView>
+            </View>
 
             <CustomButton
                 label={'Home'}
@@ -95,9 +96,22 @@ const mobile = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
+    scrollViewContainer: {
+        maxHeight: 350,
+        overflow: 'hidden',
+        backgroundColor: '#f0f8ff',
+        border: 'none',
+        shadowOffset: { height: 10, width: 15 },
+        shadowRadius: 6,
+        shadowColor: 'rgba(0, 0, 0, 0.349)',
+        borderRadius: 25,
+        marginBottom: 25,
+        width: '95%',
+    },
     title: {
         fontWeight: 'bold',
         fontSize: 28,
+        marginBottom: 25
     },
     textColumn: {
         paddingHorizontal: 7,
@@ -115,15 +129,8 @@ const mobile = StyleSheet.create({
     table: {
         marginVertical: 15,
         marginHorizontal: 'auto',
-        backgroundColor: '#f0f8ff',
-        border: 'none',
-        shadowOffset: { height: 10, width: 15 },
-        shadowRadius: 6,
-        shadowColor: 'rgba(0, 0, 0, 0.349)',
-        borderRadius: 25,
-        flex: 1,
         flexDirection: 'column',
-        width: '95%',
+        width: '100%',
     },
     row: {
         flexDirection: 'row',
@@ -138,13 +145,14 @@ const mobile = StyleSheet.create({
         backgroundColor: 'lightgray',
     },
     gameTitle: {
-        marginTop: 50,
-        marginBottom: 50,
+        marginTop: 30,
+        marginBottom: 30,
         paddingTop: 20,
         color: '#3c5070',
         fontSize: 40,
         textShadowOffset: { width: 3, height: 1 },
-        textShadowColor: '#ffe4e5'
+        textShadowColor: '#ffe4e5',
+        textAlign: 'center'
     },
 });
 

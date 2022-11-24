@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { View, Text, Image, StyleSheet, Dimensions, StatusBar } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  Dimensions,
+  StatusBar,
+} from "react-native";
 import CustomButton from "./CustomButton";
 import CustomInputBox from "./CustomInputBox";
 import { useMediaQuery } from "react-responsive";
@@ -17,7 +24,7 @@ const arrayPen = [
 ];
 
 function Home(props) {
-  const isDesktop = useMediaQuery({ minWidth: 992 });
+  const isDesktop = useMediaQuery({ minWidth: 650 });
 
   const [state, setState] = useState({
     penitence: arrayPen[0],
@@ -49,36 +56,34 @@ function Home(props) {
 
   const goToPlay = () => {
     if (!!props.callbackPlay) {
-      props.callbackPlay();
+      props.callbackPlay(username);
     }
   };
 
-    return (
-        <View style={isDesktop ? [style.mainContainer, desktopStyle.mainContainer] : style.mainContainer}>
-            <View
-                style={style.header}
-            >
-                <CustomButton
-                    label={'Classifica'}
-                    callback={goToRanking}
-                    isDesktop={isDesktop}
-                />
-            </View>
+  return (
+    <View
+      style={
+        isDesktop
+          ? [style.mainContainer, desktopStyle.mainContainer]
+          : style.mainContainer
+      }
+    >
+      <View style={style.header}>
+        <CustomButton
+          label={"Classifica"}
+          callback={goToRanking}
+          isDesktop={isDesktop}
+        />
+      </View>
 
-            <View
-                style={style.container}
-            >
-                <Text
-                    style={style.title}
-                >
-                    Sasso Carta Forbice
-                </Text>
-                <View style={style.imageContainer}>
-                <Image
-                    style={isDesktop ? [style.image, desktopStyle.image] : style.image}
-                    source={props.image}
-                />
-                </View>
+      <View style={style.container}>
+        <Text style={style.title}>Sasso Carta Forbice</Text>
+        <View style={style.imageContainer}>
+          <Image
+            style={isDesktop ? [style.image, desktopStyle.image] : style.image}
+            source={props.image}
+          />
+        </View>
 
         <View style={style.inputContainer}>
           <CustomInputBox
@@ -108,7 +113,7 @@ const style = StyleSheet.create({
     mainContainer: {
         flex:1,
         marginTop: 15,
-        height: StatusBar.currentHeight - 15,
+
     },  
     imageContainer: {
         width: '100%',
@@ -156,16 +161,16 @@ const style = StyleSheet.create({
 })
 
 const desktopStyle = StyleSheet.create({
+    mainContainer:{
+        marginHorizontal: 'auto',
+        width: '650px'
+    },
     inputContainer: {
         flexDirection: 'row'
     },
     image: {
         width: '500px'
     },
-    mainContainer: {
-        width: '650px'
-    }
 })
 
-
-export default Home
+export default Home;
