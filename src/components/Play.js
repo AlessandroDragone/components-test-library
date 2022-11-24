@@ -13,12 +13,15 @@ const res = [
 
 function Play(props) {
   let IAinput = useRef(null);
+  let stack = [props.paper, props.scissor, props.rock];
 
   const [state, setState] = useState({
     cpuPoint: 0,
     playerPoint: 0,
     playerChoice: null,
     resultMessage: "",
+    cpuIconChoice: null,
+    playerIconChoice: null,
   });
 
   const isDesktop = useMediaQuery({ minWidth: 650 });
@@ -73,6 +76,8 @@ function Play(props) {
 
     setState({
       ...state,
+      cpuIconChoice: stack[IAchoice],
+      playerIconChoice: stack[state.playerChoice],
       resultMessage: message,
       playerPoint: playerPoint,
       cpuPoint: cpuPoint,
@@ -87,9 +92,9 @@ function Play(props) {
     };
     if (state.cpuPoint === 3 || state.playerPoint === 3) {
       console.log(result);
-        props.callbackResult(result);
+      props.callbackResult(result);
     }
-  }, [state.playerPoint,state.cpuPoint]);
+  }, [state.playerPoint, state.cpuPoint]);
 
   return (
     <View style={style.container}>
@@ -109,6 +114,7 @@ function Play(props) {
           {props.rock}
         </IconButton>
       </View>
+
       <View style={style.button}>
         <CustomButton
           label={"Conferma"}
@@ -116,6 +122,12 @@ function Play(props) {
           disable={state.playerChoice !== null ? false : true}
         />
       </View>
+      {!!state.playerIconChoice && (
+        <View style={style.resultContainer}>
+          {state.playerIconChoice}
+          <View style={style.iconRotated}>{state.cpuIconChoice}</View>
+        </View>
+      )}
       <View>
         <Text style={[style.text, style.score]}>{state.resultMessage}</Text>
       </View>
@@ -134,9 +146,11 @@ const style = StyleSheet.create({
   },
   title: {
     marginTop: 50,
-    paddingTop: 40,
     color: "#3c5070",
     fontSize: 35,
+    textShadowOffset: { width: 3, height: 1 },
+    textShadowColor: "#ffe4e5",
+    fontWeight: "bold",
   },
   text: {
     marginVertical: 20,
@@ -148,6 +162,12 @@ const style = StyleSheet.create({
   },
   button: {
     marginVertical: 40,
+  },
+  iconRotated: {
+    transform: [{ rotateY: "180deg" }],
+  },
+  resultContainer: {
+    flexDirection: "row",
   },
 });
 
