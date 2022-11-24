@@ -11,8 +11,7 @@ function CustomInputBox(props) {
     setState({
       value: e.toUpperCase(),
     });
-
-    if (!!props.callbackChange) props.callbackChange(e);
+    if (!!props.callbackChange) props.callbackChange(e.toUpperCase());
   }
 
   return (
