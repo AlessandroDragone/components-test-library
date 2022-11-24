@@ -26,11 +26,14 @@ var lastIAPlays = [];
 var res = [["p", "w", "l"], ["l", "p", "w"], ["w", "l", "p"]];
 function Play(props) {
   var IAinput = (0, _react.useRef)(null);
+  var stack = [props.paper, props.scissor, props.rock];
   var _useState = (0, _react.useState)({
       cpuPoint: 0,
       playerPoint: 0,
       playerChoice: null,
-      resultMessage: ""
+      resultMessage: "",
+      cpuIconChoice: null,
+      playerIconChoice: null
     }),
     _useState2 = _slicedToArray(_useState, 2),
     state = _useState2[0],
@@ -82,6 +85,8 @@ function Play(props) {
     }
     console.log(state.playerChoice, IAchoice, result);
     setState(_objectSpread(_objectSpread({}, state), {}, {
+      cpuIconChoice: stack[IAchoice],
+      playerIconChoice: stack[state.playerChoice],
       resultMessage: message,
       playerPoint: playerPoint,
       cpuPoint: cpuPoint,
@@ -126,7 +131,11 @@ function Play(props) {
     label: "Conferma",
     callback: confirmChoice,
     disable: state.playerChoice !== null ? false : true
-  })), /*#__PURE__*/_react.default.createElement(_reactNative.View, null, /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
+  })), !!state.playerIconChoice && /*#__PURE__*/_react.default.createElement(_reactNative.View, {
+    style: style.resultContainer
+  }, state.playerIconChoice, /*#__PURE__*/_react.default.createElement(_reactNative.View, {
+    style: style.iconRotated
+  }, state.cpuIconChoice)), /*#__PURE__*/_react.default.createElement(_reactNative.View, null, /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
     style: [style.text, style.score]
   }, state.resultMessage)));
 }
@@ -141,9 +150,14 @@ var style = _reactNative.StyleSheet.create({
   },
   title: {
     marginTop: 50,
-    paddingTop: 40,
     color: "#3c5070",
-    fontSize: 35
+    fontSize: 35,
+    textShadowOffset: {
+      width: 3,
+      height: 1
+    },
+    textShadowColor: "#ffe4e5",
+    fontWeight: "bold"
   },
   text: {
     marginVertical: 20,
@@ -155,6 +169,14 @@ var style = _reactNative.StyleSheet.create({
   },
   button: {
     marginVertical: 40
+  },
+  iconRotated: {
+    transform: [{
+      rotateY: "180deg"
+    }]
+  },
+  resultContainer: {
+    flexDirection: "row"
   }
 });
 var _default = Play;
