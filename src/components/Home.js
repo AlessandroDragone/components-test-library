@@ -55,8 +55,12 @@ function Home(props) {
   };
 
   const goToPlay = () => {
+    let response = {
+      username: username,
+      penitence: state.penitence,
+    };
     if (!!props.callbackPlay) {
-      props.callbackPlay(username);
+      props.callbackPlay(response);
     }
   };
 
@@ -101,11 +105,11 @@ function Home(props) {
 
         <Text style={style.penitence}>{state.penitence}</Text>
         <View style={style.penitenceButton}>
-        <CustomButton
-          label={"Genera penitenza casuale"}
-          callback={setPenitence}
-          isDesktop={isDesktop}
-        />
+          <CustomButton
+            label={"Genera penitenza casuale"}
+            callback={setPenitence}
+            isDesktop={isDesktop}
+          />
         </View>
       </View>
     </View>
@@ -113,80 +117,80 @@ function Home(props) {
 }
 
 const style = StyleSheet.create({
-    mainContainer: {
-        flex:1,
-        marginTop: 15,
-        width: '100%',
-    },  
-    imageContainer: {
-        width: '100%',
-    },  
-    image: {
-        width: '100%',
-        height: 300,
-    },
-    header: {
-        position: 'absolute',
-        zIndex: 1,
-        top: 20,
-        right: 25,
-        flex: 1,
-        justifyContent: 'flex-end',
-        alignItems: 'flex-end',
-    },
-    container: {
-        flex: 1,
-        marginVertical: 0,
-        marginHorizontal: 'auto',
-    },
-    title: {
-        marginTop: 50,
-        paddingTop: 40,
-        color: '#3c5070',
-        fontSize: 40,
-        textAlign: 'center',
-        textShadowOffset: { width: 3, height: 1 },
-        textShadowColor: "#ffe4e5",
-        fontWeight: "bold",
-    },
-    inputBox: {
-      marginBottom: 15
-    },  
-    inputContainer: {
-        width: '100%',
-        marginVertical: 10,
-        marginHorizontal: 0,
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        gap: 20,
-        overflow: 'hidden',
-    },
-    penitence: {
-        color: 'white',
-        fontSize: 25,
-        textAlign: 'center',
-        marginVertical: 15,
-    },
-    penitenceButton: {
-      width: 120
-    }
-})
+  mainContainer: {
+    flex: 1,
+    marginTop: 15,
+    width: "100%",
+  },
+  imageContainer: {
+    width: "100%",
+  },
+  image: {
+    width: "100%",
+    height: 300,
+  },
+  header: {
+    position: "absolute",
+    zIndex: 1,
+    top: 20,
+    right: 25,
+    flex: 1,
+    justifyContent: "flex-end",
+    alignItems: "flex-end",
+  },
+  container: {
+    flex: 1,
+    marginVertical: 0,
+    marginHorizontal: "auto",
+  },
+  title: {
+    marginTop: 50,
+    paddingTop: 40,
+    color: "#3c5070",
+    fontSize: 40,
+    textAlign: "center",
+    textShadowOffset: { width: 3, height: 1 },
+    textShadowColor: "#ffe4e5",
+    fontWeight: "bold",
+  },
+  inputBox: {
+    marginBottom: 15,
+  },
+  inputContainer: {
+    width: "100%",
+    marginVertical: 10,
+    marginHorizontal: 0,
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: 20,
+    overflow: "hidden",
+  },
+  penitence: {
+    color: "white",
+    fontSize: 25,
+    textAlign: "center",
+    marginVertical: 15,
+  },
+  penitenceButton: {
+    width: 120,
+  },
+});
 
 const desktopStyle = StyleSheet.create({
-    mainContainer:{
-        marginHorizontal: 'auto',
-        width: '650px'
-    },
-    inputContainer: {
-        flexDirection: 'row'
-    },
-    image: {
-        width: '500px'
-    },
-    penitenceButton: {
-      width: 'fit-content'
-    }
-})
+  mainContainer: {
+    marginHorizontal: "auto",
+    width: "650px",
+  },
+  inputContainer: {
+    flexDirection: "row",
+  },
+  image: {
+    width: "500px",
+  },
+  penitenceButton: {
+    width: "fit-content",
+  },
+});
 
 export default Home;
