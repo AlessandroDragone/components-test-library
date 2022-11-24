@@ -92,7 +92,8 @@ var mobile = _reactNative.StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    backgroundColor: "#c85260"
   },
   scrollViewContainer: {
     maxHeight: 350,

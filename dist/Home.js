@@ -50,8 +50,12 @@ function Home(props) {
     }
   };
   var goToPlay = function goToPlay() {
+    var response = {
+      username: username,
+      penitence: state.penitence
+    };
     if (!!props.callbackPlay) {
-      props.callbackPlay(username);
+      props.callbackPlay(response);
     }
   };
   return /*#__PURE__*/_react.default.createElement(_reactNative.View, {
@@ -84,47 +88,45 @@ function Home(props) {
     isDesktop: isDesktop
   })), /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
     style: style.penitence
-  }, state.penitence), /*#__PURE__*/_react.default.createElement(_reactNative.View, {
-    style: style.penitenceButton
-  }, /*#__PURE__*/_react.default.createElement(_CustomButton.default, {
+  }, state.penitence), /*#__PURE__*/_react.default.createElement(_CustomButton.default, {
     label: "Genera penitenza casuale",
     callback: setPenitence,
     isDesktop: isDesktop
-  }))));
+  })));
 }
 var style = _reactNative.StyleSheet.create({
   mainContainer: {
     flex: 1,
-    marginTop: 15,
-    width: '100%'
+    width: "100%",
+    backgroundColor: "#c85260"
   },
   imageContainer: {
-    width: '100%'
+    width: "100%"
   },
   image: {
-    width: '100%',
+    width: "100%",
     height: 300
   },
   header: {
-    position: 'absolute',
+    position: "absolute",
     zIndex: 1,
-    top: 20,
+    top: 30,
     right: 25,
     flex: 1,
-    justifyContent: 'flex-end',
-    alignItems: 'flex-end'
+    justifyContent: "flex-end",
+    alignItems: "flex-end"
   },
   container: {
     flex: 1,
     marginVertical: 0,
-    marginHorizontal: 'auto'
+    marginHorizontal: "auto"
   },
   title: {
     marginTop: 50,
     paddingTop: 40,
-    color: '#3c5070',
+    color: "#3c5070",
     fontSize: 40,
-    textAlign: 'center',
+    textAlign: "center",
     textShadowOffset: {
       width: 3,
       height: 1
@@ -136,38 +138,32 @@ var style = _reactNative.StyleSheet.create({
     marginBottom: 15
   },
   inputContainer: {
-    width: '100%',
+    width: "100%",
     marginVertical: 10,
     marginHorizontal: 0,
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
     gap: 20,
-    overflow: 'hidden'
+    overflow: "hidden"
   },
   penitence: {
-    color: 'white',
+    color: "white",
     fontSize: 25,
-    textAlign: 'center',
+    textAlign: "center",
     marginVertical: 15
-  },
-  penitenceButton: {
-    width: 120
   }
 });
 var desktopStyle = _reactNative.StyleSheet.create({
   mainContainer: {
-    marginHorizontal: 'auto',
-    width: '650px'
+    marginHorizontal: "auto",
+    width: "650px"
   },
   inputContainer: {
-    flexDirection: 'row'
+    flexDirection: "row"
   },
   image: {
-    width: '500px'
-  },
-  penitenceButton: {
-    width: 'fit-content'
+    width: "500px"
   }
 });
 var _default = Home;

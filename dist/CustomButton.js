@@ -39,7 +39,8 @@ var mobile = _reactNative.StyleSheet.create({
   text: {
     fontWeight: "bold",
     fontSize: 15,
-    color: "white"
+    color: "white",
+    textAlign: 'center'
   }
 });
 var _default = CustomButton;

@@ -31,7 +31,9 @@ function Result(props) {
       props.callbackHome();
     }
   };
-  return /*#__PURE__*/_react.default.createElement(_reactNative.View, null, /*#__PURE__*/_react.default.createElement(_reactNative.View, {
+  return /*#__PURE__*/_react.default.createElement(_reactNative.View, {
+    style: mobile.container
+  }, /*#__PURE__*/_react.default.createElement(_reactNative.View, {
     style: mobile.header
   }, /*#__PURE__*/_react.default.createElement(_CustomButton.default, {
     label: 'Classifica',
@@ -68,6 +70,9 @@ function Result(props) {
   })));
 }
 var mobile = _reactNative.StyleSheet.create({
+  container: {
+    backgroundColor: "#c85260"
+  },
   header: {
     position: 'absolute',
     top: 20,
