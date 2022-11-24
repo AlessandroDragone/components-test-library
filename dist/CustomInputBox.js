@@ -26,7 +26,7 @@ function CustomInputBox(props) {
     setState({
       value: e.toUpperCase()
     });
-    if (!!props.callbackChange) props.callbackChange(e);
+    if (!!props.callbackChange) props.callbackChange(e.toUpperCase());
   }
   return /*#__PURE__*/_react.default.createElement(_reactNative.TextInput, {
     style: style.inputbox,

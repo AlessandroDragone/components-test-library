@@ -55,8 +55,12 @@ function Home(props) {
   };
 
   const goToPlay = () => {
+    let response = {
+      username: username,
+      penitence: state.penitence,
+    };
     if (!!props.callbackPlay) {
-      props.callbackPlay(username);
+      props.callbackPlay(response);
     }
   };
 
