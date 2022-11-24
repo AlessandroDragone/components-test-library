@@ -59,7 +59,7 @@ function Home(props) {
   }, /*#__PURE__*/_react.default.createElement(_reactNative.View, {
     style: style.header
   }, /*#__PURE__*/_react.default.createElement(_CustomButton.default, {
-    label: 'Classifica',
+    label: "Classifica",
     callback: goToRanking,
     isDesktop: isDesktop
   })), /*#__PURE__*/_react.default.createElement(_reactNative.View, {
@@ -76,23 +76,27 @@ function Home(props) {
   }, /*#__PURE__*/_react.default.createElement(_CustomInputBox.default, {
     placeholder: "Inserisci",
     callbackChange: setUsername,
-    isDesktop: isDesktop
+    isDesktop: isDesktop,
+    style: style.inputBox
   }), /*#__PURE__*/_react.default.createElement(_CustomButton.default, {
     label: "Gioca",
     callback: goToPlay,
     isDesktop: isDesktop
   })), /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
     style: style.penitence
-  }, state.penitence), /*#__PURE__*/_react.default.createElement(_CustomButton.default, {
+  }, state.penitence), /*#__PURE__*/_react.default.createElement(_reactNative.View, {
+    style: style.penitenceButton
+  }, /*#__PURE__*/_react.default.createElement(_CustomButton.default, {
     label: "Genera penitenza casuale",
     callback: setPenitence,
     isDesktop: isDesktop
-  })));
+  }))));
 }
 var style = _reactNative.StyleSheet.create({
   mainContainer: {
     flex: 1,
-    paddingTop: 20
+    marginTop: 15,
+    width: '100%'
   },
   imageContainer: {
     width: '100%'
@@ -122,6 +126,9 @@ var style = _reactNative.StyleSheet.create({
     fontSize: 40,
     textAlign: 'center'
   },
+  inputBox: {
+    marginBottom: 15
+  },
   inputContainer: {
     width: '100%',
     marginVertical: 10,
@@ -136,8 +143,10 @@ var style = _reactNative.StyleSheet.create({
     color: 'white',
     fontSize: 25,
     textAlign: 'center',
-    marginBottom: 20,
-    marginTop: 25
+    marginVertical: 15
+  },
+  penitenceButton: {
+    width: 120
   }
 });
 var desktopStyle = _reactNative.StyleSheet.create({
@@ -150,6 +159,9 @@ var desktopStyle = _reactNative.StyleSheet.create({
   },
   image: {
     width: '500px'
+  },
+  penitenceButton: {
+    width: 'fit-content'
   }
 });
 var _default = Home;

@@ -21,88 +21,9 @@ function Ranking(props) {
       props.callbackHome();
     }
   };
-  var data = [{
-    rank: 1,
-    nickname: 'alex',
-    vittorie: 1,
-    sconfitte: 2,
-    match: 3
-  }, {
-    rank: 2,
-    nickname: 'marco',
-    vittorie: 1,
-    sconfitte: 2,
-    match: 3
-  }, {
-    rank: 3,
-    nickname: 'gianluca',
-    vittorie: 1,
-    sconfitte: 2,
-    match: 3
-  }, {
-    rank: 1,
-    nickname: 'alex',
-    vittorie: 1,
-    sconfitte: 2,
-    match: 3
-  }, {
-    rank: 2,
-    nickname: 'marco',
-    vittorie: 1,
-    sconfitte: 2,
-    match: 3
-  }, {
-    rank: 3,
-    nickname: 'gianluca',
-    vittorie: 1,
-    sconfitte: 2,
-    match: 3
-  }, {
-    rank: 1,
-    nickname: 'alex',
-    vittorie: 1,
-    sconfitte: 2,
-    match: 3
-  }, {
-    rank: 2,
-    nickname: 'marco',
-    vittorie: 1,
-    sconfitte: 2,
-    match: 3
-  }, {
-    rank: 3,
-    nickname: 'gianluca',
-    vittorie: 1,
-    sconfitte: 2,
-    match: 3
-  }, {
-    rank: 1,
-    nickname: 'alex',
-    vittorie: 1,
-    sconfitte: 2,
-    match: 3
-  }, {
-    rank: 2,
-    nickname: 'marco',
-    vittorie: 1,
-    sconfitte: 2,
-    match: 3
-  }, {
-    rank: 3,
-    nickname: 'gianluca',
-    vittorie: 1,
-    sconfitte: 2,
-    match: 3
-  }];
   return /*#__PURE__*/_react.default.createElement(_reactNative.View, {
     style: isDesktop ? [mobile.rankingContainer, desktop.rankingContainer] : mobile.rankingContainer
-  }, /*#__PURE__*/_react.default.createElement(_reactNative.View, {
-    style: mobile.header
-  }, /*#__PURE__*/_react.default.createElement(_CustomButton.default, {
-    label: 'Classifica',
-    callback: goToHome,
-    isDesktop: isDesktop
-  })), /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
+  }, /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
     style: mobile.gameTitle
   }, "Sasso Carta Forbice"), /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
     style: mobile.title
@@ -132,7 +53,7 @@ function Ranking(props) {
     style: isDesktop ? [mobile.textColumn, desktop.textColumn] : mobile.textColumn
   }, "Match"))), /*#__PURE__*/_react.default.createElement(_reactNative.ScrollView, {
     style: mobile.table
-  }, data.map(function (d, key) {
+  }, !!props.data && props.data.map(function (d, key) {
     return /*#__PURE__*/_react.default.createElement(_reactNative.View, {
       key: key
     }, /*#__PURE__*/_react.default.createElement(_reactNative.View, {
@@ -143,7 +64,7 @@ function Ranking(props) {
       style: mobile.viewRow
     }, /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
       style: isDesktop ? [mobile.textRow, desktop.textRow] : mobile.textRow
-    }, d.rank)), /*#__PURE__*/_react.default.createElement(_reactNative.View, {
+    }, "#", key + 1)), /*#__PURE__*/_react.default.createElement(_reactNative.View, {
       style: mobile.viewRow
     }, /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
       style: isDesktop ? [mobile.textRow, desktop.textRow] : mobile.textRow
@@ -161,7 +82,7 @@ function Ranking(props) {
       style: isDesktop ? [mobile.textRow, desktop.textRow] : mobile.textRow
     }, d.match))));
   }))), /*#__PURE__*/_react.default.createElement(_CustomButton.default, {
-    label: 'Gioca',
+    label: 'Home',
     callback: goToHome,
     isDesktop: isDesktop
   }));
@@ -236,14 +157,6 @@ var mobile = _reactNative.StyleSheet.create({
     },
     textShadowColor: '#ffe4e5',
     textAlign: 'center'
-  },
-  header: {
-    position: 'absolute',
-    top: 30,
-    right: 25,
-    flex: 1,
-    justifyContent: 'flex-end',
-    alignItems: 'flex-end'
   }
 });
 var desktop = _reactNative.StyleSheet.create({

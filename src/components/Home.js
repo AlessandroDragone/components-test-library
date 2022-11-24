@@ -90,6 +90,7 @@ function Home(props) {
             placeholder={"Inserisci"}
             callbackChange={setUsername}
             isDesktop={isDesktop}
+            style={style.inputBox}
           />
           <CustomButton
             label={"Gioca"}
@@ -99,11 +100,13 @@ function Home(props) {
         </View>
 
         <Text style={style.penitence}>{state.penitence}</Text>
+        <View style={style.penitenceButton}>
         <CustomButton
           label={"Genera penitenza casuale"}
           callback={setPenitence}
           isDesktop={isDesktop}
         />
+        </View>
       </View>
     </View>
   );
@@ -113,13 +116,13 @@ const style = StyleSheet.create({
     mainContainer: {
         flex:1,
         marginTop: 15,
-
+        width: '100%',
     },  
     imageContainer: {
         width: '100%',
     },  
     image: {
-        width: Dimensions.get('window').width,
+        width: '100%',
         height: 300,
     },
     header: {
@@ -143,6 +146,9 @@ const style = StyleSheet.create({
         fontSize: 40,
         textAlign: 'center'
     },
+    inputBox: {
+      marginBottom: 15
+    },  
     inputContainer: {
         width: '100%',
         marginVertical: 10,
@@ -156,8 +162,12 @@ const style = StyleSheet.create({
     penitence: {
         color: 'white',
         fontSize: 25,
-        textAlign: 'center'
+        textAlign: 'center',
+        marginVertical: 15,
     },
+    penitenceButton: {
+      width: 120
+    }
 })
 
 const desktopStyle = StyleSheet.create({
@@ -171,6 +181,9 @@ const desktopStyle = StyleSheet.create({
     image: {
         width: '500px'
     },
+    penitenceButton: {
+      width: 'fit-content'
+    }
 })
 
 export default Home;
