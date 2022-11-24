@@ -100,11 +100,13 @@ function Home(props) {
         </View>
 
         <Text style={style.penitence}>{state.penitence}</Text>
+        <View style={style.penitenceButton}>
         <CustomButton
           label={"Genera penitenza casuale"}
           callback={setPenitence}
           isDesktop={isDesktop}
         />
+        </View>
       </View>
     </View>
   );
@@ -114,7 +116,7 @@ const style = StyleSheet.create({
     mainContainer: {
         flex:1,
         marginTop: 15,
-
+        width: '100%',
     },  
     imageContainer: {
         width: '100%',
@@ -163,6 +165,9 @@ const style = StyleSheet.create({
         textAlign: 'center',
         marginVertical: 15,
     },
+    penitenceButton: {
+      width: 120
+    }
 })
 
 const desktopStyle = StyleSheet.create({
@@ -176,6 +181,9 @@ const desktopStyle = StyleSheet.create({
     image: {
         width: '500px'
     },
+    penitenceButton: {
+      width: 'fit-content'
+    }
 })
 
 export default Home;

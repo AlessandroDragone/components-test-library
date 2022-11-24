@@ -76,7 +76,8 @@ function Home(props) {
   }, /*#__PURE__*/_react.default.createElement(_CustomInputBox.default, {
     placeholder: "Inserisci",
     callbackChange: setUsername,
-    isDesktop: isDesktop
+    isDesktop: isDesktop,
+    style: style.inputBox
   }), /*#__PURE__*/_react.default.createElement(_CustomButton.default, {
     label: "Gioca",
     callback: goToPlay,
@@ -98,7 +99,7 @@ var style = _reactNative.StyleSheet.create({
     width: '100%'
   },
   image: {
-    width: _reactNative.Dimensions.get('window').width,
+    width: '100%',
     height: 300
   },
   header: {
@@ -122,6 +123,9 @@ var style = _reactNative.StyleSheet.create({
     fontSize: 40,
     textAlign: 'center'
   },
+  inputBox: {
+    marginBottom: 15
+  },
   inputContainer: {
     width: '100%',
     marginVertical: 10,
@@ -135,7 +139,8 @@ var style = _reactNative.StyleSheet.create({
   penitence: {
     color: 'white',
     fontSize: 25,
-    textAlign: 'center'
+    textAlign: 'center',
+    marginVertical: 15
   }
 });
 var desktopStyle = _reactNative.StyleSheet.create({
