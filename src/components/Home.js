@@ -24,7 +24,7 @@ const arrayPen = [
 ];
 
 function Home(props) {
-  const isDesktop = useMediaQuery({ minWidth: 992 });
+  const isDesktop = useMediaQuery({ minWidth: 650 });
 
   const [state, setState] = useState({
     penitence: arrayPen[0],
@@ -110,66 +110,67 @@ function Home(props) {
 }
 
 const style = StyleSheet.create({
-  mainContainer: {
-    flex: 1,
-    marginTop: 15,
-    height: StatusBar.currentHeight - 15,
-  },
-  imageContainer: {
-    width: "100%",
-  },
-  image: {
-    width: Dimensions.get("window").width,
-    height: 300,
-  },
-  header: {
-    position: "absolute",
-    zIndex: 1,
-    top: 20,
-    right: 25,
-    flex: 1,
-    justifyContent: "flex-end",
-    alignItems: "flex-end",
-  },
-  container: {
-    flex: 1,
-    marginVertical: 0,
-    marginHorizontal: "auto",
-  },
-  title: {
-    marginTop: 50,
-    paddingTop: 40,
-    color: "#3c5070",
-    fontSize: 40,
-    textAlign: "center",
-  },
-  inputContainer: {
-    width: "100%",
-    marginVertical: 10,
-    marginHorizontal: 0,
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-    gap: 20,
-    overflow: "hidden",
-  },
-  penitence: {
-    color: "white",
-    fontSize: 25,
-    textAlign: "center",
-  },
-});
+    mainContainer: {
+        flex:1,
+        marginTop: 15,
+
+    },  
+    imageContainer: {
+        width: '100%',
+    },  
+    image: {
+        width: Dimensions.get('window').width,
+        height: 300,
+    },
+    header: {
+        position: 'absolute',
+        zIndex: 1,
+        top: 20,
+        right: 25,
+        flex: 1,
+        justifyContent: 'flex-end',
+        alignItems: 'flex-end',
+    },
+    container: {
+        flex: 1,
+        marginVertical: 0,
+        marginHorizontal: 'auto',
+    },
+    title: {
+        marginTop: 50,
+        paddingTop: 40,
+        color: '#3c5070',
+        fontSize: 40,
+        textAlign: 'center'
+    },
+    inputContainer: {
+        width: '100%',
+        marginVertical: 10,
+        marginHorizontal: 0,
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap: 20,
+        overflow: 'hidden',
+    },
+    penitence: {
+        color: 'white',
+        fontSize: 25,
+        textAlign: 'center'
+    },
+})
 
 const desktopStyle = StyleSheet.create({
-  inputContainer: {
-    flexDirection: "row",
-  },
-  image: {
-    width: "500px",
-  },
-  mainContainer: {
-    width: "650px",
-  },
-});
+    mainContainer:{
+        marginHorizontal: 'auto',
+        width: '650px'
+    },
+    inputContainer: {
+        flexDirection: 'row'
+    },
+    image: {
+        width: '500px'
+    },
+})
 
 export default Home;

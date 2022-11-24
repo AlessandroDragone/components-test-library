@@ -6,7 +6,7 @@ import { useMediaQuery } from "react-responsive";
 
 function Ranking(props) {
 
-    const isDesktop = useMediaQuery({ minWidth: 992 })
+    const isDesktop = useMediaQuery({ minWidth: 650 })
 
     const goToHome = () => {
         if (!!props.callbackHome) {
@@ -201,7 +201,8 @@ const mobile = StyleSheet.create({
         shadowRadius: 6,
         shadowColor: 'rgba(0, 0, 0, 0.349)',
         borderRadius: 25,
-        marginBottom: 25
+        marginBottom: 25,
+        width: '95%',
     },
     title: {
         fontWeight: 'bold',
@@ -225,7 +226,7 @@ const mobile = StyleSheet.create({
         marginVertical: 15,
         marginHorizontal: 'auto',
         flexDirection: 'column',
-        width: '95%',
+        width: '100%',
     },
     row: {
         flexDirection: 'row',

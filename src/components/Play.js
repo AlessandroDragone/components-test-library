@@ -24,7 +24,7 @@ function Play(props) {
     resultMessage: "",
   });
 
-  const isDesktop = useMediaQuery({ minWidth: 992 });
+  const isDesktop = useMediaQuery({ minWidth: 650 });
 
   function handleChoice(e) {
     console.log(e);

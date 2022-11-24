@@ -14,7 +14,7 @@ function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "functio
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 function Ranking(props) {
   var isDesktop = (0, _reactResponsive.useMediaQuery)({
-    minWidth: 992
+    minWidth: 650
   });
   var goToHome = function goToHome() {
     if (!!props.callbackHome) {
@@ -185,7 +185,8 @@ var mobile = _reactNative.StyleSheet.create({
     shadowRadius: 6,
     shadowColor: 'rgba(0, 0, 0, 0.349)',
     borderRadius: 25,
-    marginBottom: 25
+    marginBottom: 25,
+    width: '95%'
   },
   title: {
     fontWeight: 'bold',
@@ -209,7 +210,7 @@ var mobile = _reactNative.StyleSheet.create({
     marginVertical: 15,
     marginHorizontal: 'auto',
     flexDirection: 'column',
-    width: '95%'
+    width: '100%'
   },
   row: {
     flexDirection: 'row',
