@@ -39,10 +39,17 @@ Object.defineProperty(exports, "Ranking", {
     return _Ranking.default;
   }
 });
+Object.defineProperty(exports, "Result", {
+  enumerable: true,
+  get: function get() {
+    return _Result.default;
+  }
+});
 var _CustomButton = _interopRequireDefault(require("./CustomButton"));
 var _CustomInputBox = _interopRequireDefault(require("./CustomInputBox"));
 var _IconButton = _interopRequireDefault(require("./IconButton"));
 var _Home = _interopRequireDefault(require("./Home"));
 var _Play = _interopRequireDefault(require("./Play"));
 var _Ranking = _interopRequireDefault(require("./Ranking"));
+var _Result = _interopRequireDefault(require("./Result"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
