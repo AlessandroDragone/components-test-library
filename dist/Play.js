@@ -141,6 +141,7 @@ function Play(props) {
 }
 var style = _reactNative.StyleSheet.create({
   container: {
+    flex: 1,
     alignItems: "center",
     justifyContent: "space-around",
     backgroundColor: "#c85260"

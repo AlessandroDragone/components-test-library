@@ -99,11 +99,13 @@ function Result(props) {
 
 const mobile = StyleSheet.create({
     container: {
+        flex: 1,
+        alignItems: 'center',
         backgroundColor: "#c85260",
     },
     header: {
         position: 'absolute',
-        top: 20,
+        top: 30,
         right: 20,
         flex: 1,
         justifyContent: 'flex-end',
@@ -133,16 +135,16 @@ const mobile = StyleSheet.create({
         color: '#3c5070',
         fontSize: 30,
         fontWeight: 'bold',
+        textAlign: 'center',
         textShadowOffset: { width: 1, height: 3 },
         textShadowColor: '#ffe4e588',
         margin: 0,
         marginTop: 10,
     },
     buttons: {
-        flex: 1,
-        flexDirection: 'row',
         justifyContent: 'space-evenly',
-        marginTop: 50,
+        height: 170,
+        marginBottom: 50,
     },
 });
 
@@ -155,9 +157,12 @@ const desktop = StyleSheet.create({
         marginTop: 30,
     },
     buttons: {
+        flexDirection: 'row',
         marginTop: 120,
         justifyContent: 'center',
         gap: 50,
+        height: 'auto',
+        marginBottom: 0,
     },
 })
 

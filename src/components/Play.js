@@ -137,6 +137,7 @@ function Play(props) {
 
 const style = StyleSheet.create({
   container: {
+    flex: 1,
     alignItems: "center",
     justifyContent: "space-around",
     backgroundColor: "#c85260",
