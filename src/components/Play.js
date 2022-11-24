@@ -74,6 +74,19 @@ function Play(props) {
     }
     console.log(state.playerChoice, IAchoice, result);
 
+    if (cpuPoint === 3 || playerPoint === 3) {
+      let result = {
+        cpu: cpuPoint,
+        playerPoint: playerPoint,
+      };
+
+      cpuPoint = 0;
+      playerPoint = 0;
+      message = '';
+
+      props.callbackResult(result);
+    }
+
     setState({
       ...state,
       cpuIconChoice: stack[IAchoice],
@@ -84,17 +97,6 @@ function Play(props) {
       playerChoice: null,
     });
   }
-
-  useEffect(() => {
-    let result = {
-      cpu: state.cpuPoint,
-      playerPoint: state.playerPoint,
-    };
-    if (state.cpuPoint === 3 || state.playerPoint === 3) {
-      console.log(result);
-      props.callbackResult(result);
-    }
-  }, [state.playerPoint, state.cpuPoint]);
 
   return (
     <View style={style.container}>

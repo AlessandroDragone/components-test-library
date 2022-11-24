@@ -84,6 +84,16 @@ function Play(props) {
         break;
     }
     console.log(state.playerChoice, IAchoice, result);
+    if (cpuPoint === 3 || playerPoint === 3) {
+      var _result = {
+        cpu: cpuPoint,
+        playerPoint: playerPoint
+      };
+      cpuPoint = 0;
+      playerPoint = 0;
+      message = '';
+      props.callbackResult(_result);
+    }
     setState(_objectSpread(_objectSpread({}, state), {}, {
       cpuIconChoice: stack[IAchoice],
       playerIconChoice: stack[state.playerChoice],
@@ -93,16 +103,6 @@ function Play(props) {
       playerChoice: null
     }));
   }
-  (0, _react.useEffect)(function () {
-    var result = {
-      cpu: state.cpuPoint,
-      playerPoint: state.playerPoint
-    };
-    if (state.cpuPoint === 3 || state.playerPoint === 3) {
-      console.log(result);
-      props.callbackResult(result);
-    }
-  }, [state.playerPoint, state.cpuPoint]);
   return /*#__PURE__*/_react.default.createElement(_reactNative.View, {
     style: style.container
   }, /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
