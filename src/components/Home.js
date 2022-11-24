@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { View, Text, Image, StyleSheet, Dimensions, StatusBar } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  Dimensions,
+  StatusBar,
+} from "react-native";
 import CustomButton from "./CustomButton";
 import CustomInputBox from "./CustomInputBox";
 import { useMediaQuery } from "react-responsive";
@@ -53,32 +60,30 @@ function Home(props) {
     }
   };
 
-    return (
-        <View style={isDesktop ? [style.mainContainer, desktopStyle.mainContainer] : style.mainContainer}>
-            <View
-                style={style.header}
-            >
-                <CustomButton
-                    label={'Classifica'}
-                    callback={goToRanking}
-                    isDesktop={isDesktop}
-                />
-            </View>
+  return (
+    <View
+      style={
+        isDesktop
+          ? [style.mainContainer, desktopStyle.mainContainer]
+          : style.mainContainer
+      }
+    >
+      <View style={style.header}>
+        <CustomButton
+          label={"Classifica"}
+          callback={goToRanking}
+          isDesktop={isDesktop}
+        />
+      </View>
 
-            <View
-                style={style.container}
-            >
-                <Text
-                    style={style.title}
-                >
-                    Sasso Carta Forbice
-                </Text>
-                <View style={style.imageContainer}>
-                <Image
-                    style={isDesktop ? [style.image, desktopStyle.image] : style.image}
-                    source={props.image}
-                />
-                </View>
+      <View style={style.container}>
+        <Text style={style.title}>Sasso Carta Forbice</Text>
+        <View style={style.imageContainer}>
+          <Image
+            style={isDesktop ? [style.image, desktopStyle.image] : style.image}
+            source={props.image}
+          />
+        </View>
 
         <View style={style.inputContainer}>
           <CustomInputBox
@@ -107,13 +112,14 @@ function Home(props) {
 const style = StyleSheet.create({
     mainContainer: {
         flex:1,
-        paddingTop: 20,
+        marginTop: 15,
+
     },  
     imageContainer: {
         width: '100%',
     },  
     image: {
-        width: '100%',
+        width: Dimensions.get('window').width,
         height: 300,
     },
     header: {
@@ -150,9 +156,7 @@ const style = StyleSheet.create({
     penitence: {
         color: 'white',
         fontSize: 25,
-        textAlign: 'center',
-        marginBottom: 20,
-        marginTop: 25,
+        textAlign: 'center'
     },
 })
 
@@ -167,6 +171,6 @@ const desktopStyle = StyleSheet.create({
     image: {
         width: '500px'
     },
-  })
+})
 
-export default Home
+export default Home;
