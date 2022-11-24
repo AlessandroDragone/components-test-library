@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { View, Text, Image, StyleSheet, Dimensions, StatusBar } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  Dimensions,
+  StatusBar,
+} from "react-native";
 import CustomButton from "./CustomButton";
 import CustomInputBox from "./CustomInputBox";
 import { useMediaQuery } from "react-responsive";
@@ -53,32 +60,30 @@ function Home(props) {
     }
   };
 
-    return (
-        <View style={isDesktop ? [style.mainContainer, desktopStyle.mainContainer] : style.mainContainer}>
-            <View
-                style={style.header}
-            >
-                <CustomButton
-                    label={'Classifica'}
-                    callback={goToRanking}
-                    isDesktop={isDesktop}
-                />
-            </View>
+  return (
+    <View
+      style={
+        isDesktop
+          ? [style.mainContainer, desktopStyle.mainContainer]
+          : style.mainContainer
+      }
+    >
+      <View style={style.header}>
+        <CustomButton
+          label={"Classifica"}
+          callback={goToRanking}
+          isDesktop={isDesktop}
+        />
+      </View>
 
-            <View
-                style={style.container}
-            >
-                <Text
-                    style={style.title}
-                >
-                    Sasso Carta Forbice
-                </Text>
-                <View style={style.imageContainer}>
-                <Image
-                    style={isDesktop ? [style.image, desktopStyle.image] : style.image}
-                    source={props.image}
-                />
-                </View>
+      <View style={style.container}>
+        <Text style={style.title}>Sasso Carta Forbice</Text>
+        <View style={style.imageContainer}>
+          <Image
+            style={isDesktop ? [style.image, desktopStyle.image] : style.image}
+            source={props.image}
+          />
+        </View>
 
         <View style={style.inputContainer}>
           <CustomInputBox
@@ -105,67 +110,66 @@ function Home(props) {
 }
 
 const style = StyleSheet.create({
-    mainContainer: {
-        flex:1,
-        marginTop: 15,
-        height: StatusBar.currentHeight - 15,
-    },  
-    imageContainer: {
-        width: '100%',
-    },  
-    image: {
-        width: Dimensions.get('window').width,
-        height: 300,
-    },
-    header: {
-        position: 'absolute',
-        zIndex: 1,
-        top: 20,
-        right: 25,
-        flex: 1,
-        justifyContent: 'flex-end',
-        alignItems: 'flex-end',
-    },
-    container: {
-        flex: 1,
-        marginVertical: 0,
-        marginHorizontal: 'auto',
-    },
-    title: {
-        marginTop: 50,
-        paddingTop: 40,
-        color: '#3c5070',
-        fontSize: 40,
-        textAlign: 'center'
-    },
-    inputContainer: {
-        width: '100%',
-        marginVertical: 10,
-        marginHorizontal: 0,
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        gap: 20,
-        overflow: 'hidden',
-    },
-    penitence: {
-        color: 'white',
-        fontSize: 25,
-        textAlign: 'center'
-    },
-})
+  mainContainer: {
+    flex: 1,
+    marginTop: 15,
+    height: StatusBar.currentHeight - 15,
+  },
+  imageContainer: {
+    width: "100%",
+  },
+  image: {
+    width: Dimensions.get("window").width,
+    height: 300,
+  },
+  header: {
+    position: "absolute",
+    zIndex: 1,
+    top: 20,
+    right: 25,
+    flex: 1,
+    justifyContent: "flex-end",
+    alignItems: "flex-end",
+  },
+  container: {
+    flex: 1,
+    marginVertical: 0,
+    marginHorizontal: "auto",
+  },
+  title: {
+    marginTop: 50,
+    paddingTop: 40,
+    color: "#3c5070",
+    fontSize: 40,
+    textAlign: "center",
+  },
+  inputContainer: {
+    width: "100%",
+    marginVertical: 10,
+    marginHorizontal: 0,
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: 20,
+    overflow: "hidden",
+  },
+  penitence: {
+    color: "white",
+    fontSize: 25,
+    textAlign: "center",
+  },
+});
 
 const desktopStyle = StyleSheet.create({
-    inputContainer: {
-        flexDirection: 'row'
-    },
-    image: {
-        width: '500px'
-    },
-    mainContainer: {
-        width: '650px'
-    }
-})
+  inputContainer: {
+    flexDirection: "row",
+  },
+  image: {
+    width: "500px",
+  },
+  mainContainer: {
+    width: "650px",
+  },
+});
 
-
-export default Home
+export default Home;
