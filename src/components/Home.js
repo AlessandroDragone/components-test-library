@@ -23,14 +23,14 @@ const arrayPen = [
   "Imita il verso di 3 animali",
 ];
 
+let username = "";
+
 function Home(props) {
   const isDesktop = useMediaQuery({ minWidth: 650 });
 
   const [state, setState] = useState({
     penitence: arrayPen[0],
   });
-
-  let username = "";
 
   const setUsername = (e) => {
     username = e;
