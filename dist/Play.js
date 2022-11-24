@@ -106,11 +106,11 @@ function Play(props) {
   return /*#__PURE__*/_react.default.createElement(_reactNative.View, {
     style: style.container
   }, /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
-    style: style.title
+    style: isDesktop ? [style.title, desktop.title] : style.title
   }, "Sasso Carta Forbice"), /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
-    style: [style.text, style.score]
+    style: isDesktop ? [style.text, style.score, desktop.text] : [style.text, style.score]
   }, "Punteggio: ", props.username, " ", state.playerPoint, " - ", state.cpuPoint, " CPU"), /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
-    style: style.text
+    style: isDesktop ? [style.text, desktop.text] : style.text
   }, "Scegli la tua giocata:"), /*#__PURE__*/_react.default.createElement(_reactNative.View, {
     style: style.iconContainer
   }, /*#__PURE__*/_react.default.createElement(_IconButton.default, {
@@ -136,7 +136,7 @@ function Play(props) {
   }, state.playerIconChoice, /*#__PURE__*/_react.default.createElement(_reactNative.View, {
     style: style.iconRotated
   }, state.cpuIconChoice)), /*#__PURE__*/_react.default.createElement(_reactNative.View, null, /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
-    style: [style.text, style.score]
+    style: isDesktop ? [style.text, style.score, desktop.text] : [style.text, style.score]
   }, state.resultMessage)));
 }
 var style = _reactNative.StyleSheet.create({
@@ -178,6 +178,14 @@ var style = _reactNative.StyleSheet.create({
   },
   resultContainer: {
     flexDirection: "row"
+  }
+});
+var desktop = _reactNative.StyleSheet.create({
+  title: {
+    fontSize: 45
+  },
+  text: {
+    fontSize: 35
   }
 });
 var _default = Play;

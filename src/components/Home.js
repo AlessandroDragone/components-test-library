@@ -81,11 +81,12 @@ function Home(props) {
       </View>
 
       <View style={style.container}>
-        <Text style={style.title}>Sasso Carta Forbice</Text>
+        <Text style={isDesktop ? [style.title, desktopStyle.title] : style.title}>Sasso Carta Forbice</Text>
         <View style={style.imageContainer}>
           <Image
             style={isDesktop ? [style.image, desktopStyle.image] : style.image}
             source={props.image}
+            resizeMode={'contain'}
           />
         </View>
 
@@ -103,13 +104,15 @@ function Home(props) {
           />
         </View>
 
-        <Text style={style.penitence}>{state.penitence}</Text>
+        <Text style={isDesktop ? [style.penitence, desktopStyle.penitence] : style.penitence}>{state.penitence}</Text>
 
-        <CustomButton
-          label={"Genera penitenza casuale"}
-          callback={setPenitence}
-          isDesktop={isDesktop}
-        />
+        <View style={{marginHorizontal: 'auto'}}>
+          <CustomButton
+            label={"Genera penitenza casuale"}
+            callback={setPenitence}
+            isDesktop={isDesktop}
+          />
+        </View>
       </View>
     </View>
   );
@@ -126,7 +129,7 @@ const style = StyleSheet.create({
   },
   image: {
     width: "100%",
-    height: 300,
+    height: 200,
   },
   header: {
     position: "absolute",
@@ -140,13 +143,12 @@ const style = StyleSheet.create({
   container: {
     flex: 1,
     marginVertical: 0,
-    marginHorizontal: "auto",
   },
   title: {
     marginTop: 50,
     paddingTop: 40,
     color: "#3c5070",
-    fontSize: 40,
+    fontSize: 35,
     textAlign: "center",
     textShadowOffset: { width: 3, height: 1 },
     textShadowColor: "#ffe4e5",
@@ -176,13 +178,18 @@ const style = StyleSheet.create({
 const desktopStyle = StyleSheet.create({
   mainContainer: {
     marginHorizontal: "auto",
-    width: "650px",
   },
   inputContainer: {
     flexDirection: "row",
   },
   image: {
-    width: "500px",
+    height: 400,
+  },
+  title: {
+    fontSize: 45,
+  },
+  penitence: {
+    fontSize: 35
   },
 });
 

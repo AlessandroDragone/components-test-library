@@ -24,10 +24,10 @@ function Ranking(props) {
   return /*#__PURE__*/_react.default.createElement(_reactNative.View, {
     style: isDesktop ? [mobile.rankingContainer, desktop.rankingContainer] : mobile.rankingContainer
   }, /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
-    style: mobile.gameTitle
+    style: isDesktop ? [mobile.gameTitle, desktop.gameTitle] : mobile.gameTitle
   }, "Sasso Carta Forbice"), /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
     style: mobile.title
-  }, "Ranking"), /*#__PURE__*/_react.default.createElement(_reactNative.View, {
+  }, "Classifica"), /*#__PURE__*/_react.default.createElement(_reactNative.View, {
     style: mobile.scrollViewContainer
   }, /*#__PURE__*/_react.default.createElement(_reactNative.View, {
     style: mobile.row
@@ -39,7 +39,7 @@ function Ranking(props) {
     style: mobile.viewRow
   }, /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
     style: isDesktop ? [mobile.textColumn, desktop.textColumn] : mobile.textColumn
-  }, "Nickname")), /*#__PURE__*/_react.default.createElement(_reactNative.View, {
+  }, "Nome")), /*#__PURE__*/_react.default.createElement(_reactNative.View, {
     style: mobile.viewRow
   }, /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
     style: isDesktop ? [mobile.textColumn, desktop.textColumn] : mobile.textColumn
@@ -151,7 +151,8 @@ var mobile = _reactNative.StyleSheet.create({
     marginBottom: 30,
     paddingTop: 20,
     color: '#3c5070',
-    fontSize: 40,
+    fontSize: 35,
+    fontWeight: 'bold',
     textShadowOffset: {
       width: 3,
       height: 1
@@ -171,6 +172,9 @@ var desktop = _reactNative.StyleSheet.create({
     width: 650,
     marginVertical: 0,
     marginHorizontal: 'auto'
+  },
+  gameTitle: {
+    fontSize: 45
   }
 });
 var _default = Ranking;

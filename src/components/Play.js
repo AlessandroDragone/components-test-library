@@ -98,11 +98,11 @@ function Play(props) {
 
   return (
     <View style={style.container}>
-      <Text style={style.title}>Sasso Carta Forbice</Text>
-      <Text style={[style.text, style.score]}>
+      <Text style={isDesktop ? [style.title, desktop.title] : style.title}>Sasso Carta Forbice</Text>
+      <Text style={isDesktop ? [style.text, style.score, desktop.text] : [style.text, style.score]}>
         Punteggio: {props.username} {state.playerPoint} - {state.cpuPoint} CPU
       </Text>
-      <Text style={style.text}>Scegli la tua giocata:</Text>
+      <Text style={isDesktop ? [style.text, desktop.text] : style.text}>Scegli la tua giocata:</Text>
       <View style={style.iconContainer}>
         <IconButton isDesktop={isDesktop} value={0} callback={handleChoice}>
           {props.paper}
@@ -129,7 +129,7 @@ function Play(props) {
         </View>
       )}
       <View>
-        <Text style={[style.text, style.score]}>{state.resultMessage}</Text>
+        <Text style={isDesktop ? [style.text, style.score, desktop.text] : [style.text, style.score]}>{state.resultMessage}</Text>
       </View>
     </View>
   );
@@ -171,5 +171,14 @@ const style = StyleSheet.create({
     flexDirection: "row",
   },
 });
+
+const desktop = StyleSheet.create({
+  title: {
+      fontSize: 45,
+  },
+  text: {
+    fontSize: 35,
+  },
+})
 
 export default Play;

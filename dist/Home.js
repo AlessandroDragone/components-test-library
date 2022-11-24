@@ -69,12 +69,13 @@ function Home(props) {
   })), /*#__PURE__*/_react.default.createElement(_reactNative.View, {
     style: style.container
   }, /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
-    style: style.title
+    style: isDesktop ? [style.title, desktopStyle.title] : style.title
   }, "Sasso Carta Forbice"), /*#__PURE__*/_react.default.createElement(_reactNative.View, {
     style: style.imageContainer
   }, /*#__PURE__*/_react.default.createElement(_reactNative.Image, {
     style: isDesktop ? [style.image, desktopStyle.image] : style.image,
-    source: props.image
+    source: props.image,
+    resizeMode: 'contain'
   })), /*#__PURE__*/_react.default.createElement(_reactNative.View, {
     style: style.inputContainer
   }, /*#__PURE__*/_react.default.createElement(_CustomInputBox.default, {
@@ -87,12 +88,16 @@ function Home(props) {
     callback: goToPlay,
     isDesktop: isDesktop
   })), /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
-    style: style.penitence
-  }, state.penitence), /*#__PURE__*/_react.default.createElement(_CustomButton.default, {
+    style: isDesktop ? [style.penitence, desktopStyle.penitence] : style.penitence
+  }, state.penitence), /*#__PURE__*/_react.default.createElement(_reactNative.View, {
+    style: {
+      marginHorizontal: 'auto'
+    }
+  }, /*#__PURE__*/_react.default.createElement(_CustomButton.default, {
     label: "Genera penitenza casuale",
     callback: setPenitence,
     isDesktop: isDesktop
-  })));
+  }))));
 }
 var style = _reactNative.StyleSheet.create({
   mainContainer: {
@@ -105,7 +110,7 @@ var style = _reactNative.StyleSheet.create({
   },
   image: {
     width: "100%",
-    height: 300
+    height: 200
   },
   header: {
     position: "absolute",
@@ -118,14 +123,13 @@ var style = _reactNative.StyleSheet.create({
   },
   container: {
     flex: 1,
-    marginVertical: 0,
-    marginHorizontal: "auto"
+    marginVertical: 0
   },
   title: {
     marginTop: 50,
     paddingTop: 40,
     color: "#3c5070",
-    fontSize: 40,
+    fontSize: 35,
     textAlign: "center",
     textShadowOffset: {
       width: 3,
@@ -156,14 +160,19 @@ var style = _reactNative.StyleSheet.create({
 });
 var desktopStyle = _reactNative.StyleSheet.create({
   mainContainer: {
-    marginHorizontal: "auto",
-    width: "650px"
+    marginHorizontal: "auto"
   },
   inputContainer: {
     flexDirection: "row"
   },
   image: {
-    width: "500px"
+    height: 400
+  },
+  title: {
+    fontSize: 45
+  },
+  penitence: {
+    fontSize: 35
   }
 });
 var _default = Home;

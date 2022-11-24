@@ -18,7 +18,7 @@ function CustomButton(props) {
     style: [mobile.button, props.disable && mobile.disable],
     onPress: handleClick
   }, /*#__PURE__*/_react.default.createElement(_reactNative.View, null, /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
-    style: mobile.text
+    style: props.isDesktop ? [mobile.text, desktopStyle.text] : mobile.text
   }, props.label)));
 }
 CustomButton.defaultProps = {
@@ -41,6 +41,11 @@ var mobile = _reactNative.StyleSheet.create({
     fontSize: 15,
     color: "white",
     textAlign: 'center'
+  }
+});
+var desktopStyle = _reactNative.StyleSheet.create({
+  text: {
+    fontSize: 20
   }
 });
 var _default = CustomButton;

@@ -22,7 +22,7 @@ function CustomButton(props) {
       onPress={handleClick}
     >
       <View>
-        <Text style={mobile.text}>{props.label}</Text>
+        <Text style={props.isDesktop ? [mobile.text, desktopStyle.text] : mobile.text}>{props.label}</Text>
       </View>
     </TouchableOpacity>
   );
@@ -49,6 +49,12 @@ const mobile = StyleSheet.create({
     fontSize: 15,
     color: "white",
     textAlign: 'center'
+  },
+});
+
+const desktopStyle = StyleSheet.create({
+  text: {
+    fontSize: 20,
   },
 });
 

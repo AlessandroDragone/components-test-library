@@ -18,13 +18,13 @@ function Ranking(props) {
         <View style={isDesktop ? [mobile.rankingContainer, desktop.rankingContainer] : mobile.rankingContainer}>
 
             <Text
-                style={mobile.gameTitle}
+                style={isDesktop ? [mobile.gameTitle, desktop.gameTitle] : mobile.gameTitle}
             >
                 Sasso Carta Forbice
             </Text>
 
             <Text style={mobile.title}>
-                Ranking
+                Classifica
             </Text>
             <View style={mobile.scrollViewContainer}>
 
@@ -33,7 +33,7 @@ function Ranking(props) {
                         <Text style={isDesktop ? [mobile.textColumn, desktop.textColumn] : mobile.textColumn}>Rank</Text>
                     </View>
                     <View style={mobile.viewRow}>
-                        <Text style={isDesktop ? [mobile.textColumn, desktop.textColumn] : mobile.textColumn}>Nickname</Text>
+                        <Text style={isDesktop ? [mobile.textColumn, desktop.textColumn] : mobile.textColumn}>Nome</Text>
                     </View>
                     <View style={mobile.viewRow}>
                         <Text style={isDesktop ? [mobile.textColumn, desktop.textColumn] : mobile.textColumn}>Vittorie</Text>
@@ -150,7 +150,8 @@ const mobile = StyleSheet.create({
         marginBottom: 30,
         paddingTop: 20,
         color: '#3c5070',
-        fontSize: 40,
+        fontSize: 35,
+        fontWeight: 'bold',
         textShadowOffset: { width: 3, height: 1 },
         textShadowColor: '#ffe4e5',
         textAlign: 'center'
@@ -168,6 +169,9 @@ const desktop = StyleSheet.create({
         width: 650,
         marginVertical: 0,
         marginHorizontal: 'auto',
+    },
+    gameTitle: {
+        fontSize: 45,
     },
 })
 

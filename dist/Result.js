@@ -42,24 +42,28 @@ function Result(props) {
   })), /*#__PURE__*/_react.default.createElement(_reactNative.View, {
     style: mobile.result
   }, props.win ? /*#__PURE__*/_react.default.createElement(_reactNative.View, {
-    style: isDesktop ? [mobile.imgContainer, desktop.imgContainer] : mobile.imgContainer
+    style: mobile.imgContainer
   }, /*#__PURE__*/_react.default.createElement(_reactNative.Image, {
-    style: mobile.img,
-    source: props.imgWin
+    style: isDesktop ? [mobile.img, desktop.img] : mobile.img,
+    source: props.imgWin,
+    resizeMode: 'contain'
   })) : /*#__PURE__*/_react.default.createElement(_reactNative.View, {
-    style: isDesktop ? [mobile.imgContainer, desktop.imgContainer] : mobile.imgContainer
+    style: mobile.imgContainer
   }, /*#__PURE__*/_react.default.createElement(_reactNative.Image, {
-    style: mobile.img,
-    source: props.imgLose
+    style: isDesktop ? [mobile.img, desktop.img] : mobile.img,
+    source: props.imgLose,
+    resizeMode: 'contain'
   })), /*#__PURE__*/_react.default.createElement(_reactNative.View, {
     style: mobile.winLoseContainer
   }, props.win ? /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
     style: isDesktop ? [mobile.text, desktop.text] : mobile.text
-  }, "Hai vinto!") : /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
+  }, "Hai vinto!") : /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
     style: isDesktop ? [mobile.text, desktop.text] : mobile.text
-  }, "Hai perso! ", props.penitence), /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
-    style: mobile.text
-  }, props.username, " - CPU : ", props.userScore, " - ", props.cpuScore))), /*#__PURE__*/_react.default.createElement(_reactNative.View, {
+  }, "Hai perso!"), /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
+    style: isDesktop ? [mobile.text, desktop.text] : mobile.text
+  }, props.penitence)), /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
+    style: isDesktop ? [mobile.text, desktop.text] : mobile.text
+  }, props.username, " - CPU: ", props.userScore, " - ", props.cpuScore))), /*#__PURE__*/_react.default.createElement(_reactNative.View, {
     style: isDesktop ? [mobile.buttons, desktop.buttons] : mobile.buttons
   }, /*#__PURE__*/_react.default.createElement(_CustomButton.default, {
     label: 'Gioca ancora',
@@ -92,15 +96,14 @@ var mobile = _reactNative.StyleSheet.create({
     textAlign: 'center'
   },
   imgContainer: {
-    height: 100,
-    width: 100,
-    marginTop: 120
+    width: '100%',
+    marginTop: 75
   },
   img: {
-    height: '100%'
+    height: 200,
+    width: '100%'
   },
   winLoseContainer: {
-    marginTop: '120',
     textAlign: 'center'
   },
   text: {
@@ -113,24 +116,25 @@ var mobile = _reactNative.StyleSheet.create({
     },
     textShadowColor: '#ffe4e588',
     margin: 0,
+    marginTop: 10
+  },
+  buttons: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    marginTop: 50
+  }
+});
+var desktop = _reactNative.StyleSheet.create({
+  img: {
+    height: 300
+  },
+  text: {
+    fontSize: 45,
     marginTop: 30
   },
   buttons: {
     marginTop: 120,
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'space-around'
-  }
-});
-var desktop = _reactNative.StyleSheet.create({
-  imgContainer: {
-    height: 300,
-    width: 300
-  },
-  text: {
-    fontSize: 45
-  },
-  buttons: {
     justifyContent: 'center',
     gap: 50
   }
