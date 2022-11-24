@@ -1,8 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
 import { StyleSheet, View, Text } from "react-native";
-import { GiRock } from "react-icons/gi";
-import { GiPaper } from "react-icons/gi";
-import { GiScissors } from "react-icons/gi";
 import IconButton from "./IconButton";
 import { useMediaQuery } from "react-responsive";
 import CustomButton from "./CustomButton";
@@ -89,9 +86,10 @@ function Play(props) {
       playerPoint: state.playerPoint,
     };
     if (state.cpuPoint === 3 || state.playerPoint === 3) {
-      //   props.callbackResult(result);
+      console.log(result);
+        props.callbackResult(result);
     }
-  }, [state]);
+  }, [state.playerPoint,state.cpuPoint]);
 
   return (
     <View style={style.container}>
