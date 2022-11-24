@@ -59,7 +59,7 @@ function Home(props) {
   }, /*#__PURE__*/_react.default.createElement(_reactNative.View, {
     style: style.header
   }, /*#__PURE__*/_react.default.createElement(_CustomButton.default, {
-    label: 'Classifica',
+    label: "Classifica",
     callback: goToRanking,
     isDesktop: isDesktop
   })), /*#__PURE__*/_react.default.createElement(_reactNative.View, {
@@ -92,13 +92,13 @@ function Home(props) {
 var style = _reactNative.StyleSheet.create({
   mainContainer: {
     flex: 1,
-    paddingTop: 20
+    marginTop: 15
   },
   imageContainer: {
     width: '100%'
   },
   image: {
-    width: '100%',
+    width: _reactNative.Dimensions.get('window').width,
     height: 300
   },
   header: {
@@ -135,9 +135,7 @@ var style = _reactNative.StyleSheet.create({
   penitence: {
     color: 'white',
     fontSize: 25,
-    textAlign: 'center',
-    marginBottom: 20,
-    marginTop: 25
+    textAlign: 'center'
   }
 });
 var desktopStyle = _reactNative.StyleSheet.create({

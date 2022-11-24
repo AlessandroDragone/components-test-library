@@ -90,6 +90,7 @@ function Home(props) {
             placeholder={"Inserisci"}
             callbackChange={setUsername}
             isDesktop={isDesktop}
+            style={style.inputBox}
           />
           <CustomButton
             label={"Gioca"}
@@ -119,7 +120,7 @@ const style = StyleSheet.create({
         width: '100%',
     },  
     image: {
-        width: Dimensions.get('window').width,
+        width: '100%',
         height: 300,
     },
     header: {
@@ -143,6 +144,9 @@ const style = StyleSheet.create({
         fontSize: 40,
         textAlign: 'center'
     },
+    inputBox: {
+      marginBottom: 15
+    },  
     inputContainer: {
         width: '100%',
         marginVertical: 10,
@@ -156,7 +160,8 @@ const style = StyleSheet.create({
     penitence: {
         color: 'white',
         fontSize: 25,
-        textAlign: 'center'
+        textAlign: 'center',
+        marginVertical: 15,
     },
 })
 
