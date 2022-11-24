@@ -7,7 +7,6 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 var _react = _interopRequireWildcard(require("react"));
 var _reactNative = require("react-native");
-var _gi = require("react-icons/gi");
 var _IconButton = _interopRequireDefault(require("./IconButton"));
 var _reactResponsive = require("react-responsive");
 var _CustomButton = _interopRequireDefault(require("./CustomButton"));
@@ -95,9 +94,10 @@ function Play(props) {
       playerPoint: state.playerPoint
     };
     if (state.cpuPoint === 3 || state.playerPoint === 3) {
-      //   props.callbackResult(result);
+      console.log(result);
+      props.callbackResult(result);
     }
-  }, [state]);
+  }, [state.playerPoint, state.cpuPoint]);
   return /*#__PURE__*/_react.default.createElement(_reactNative.View, {
     style: style.container
   }, /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
