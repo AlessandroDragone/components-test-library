@@ -167,7 +167,6 @@ const desktopStyle = StyleSheet.create({
     image: {
         width: '500px'
     },
-})
-
+  })
 
 export default Home
