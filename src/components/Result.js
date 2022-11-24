@@ -27,7 +27,7 @@ function Result(props) {
     }
 
     return (
-        <View>
+        <View style={mobile.container}>
 
             <View style={mobile.header}>
                 <CustomButton
@@ -91,6 +91,9 @@ function Result(props) {
 }
 
 const mobile = StyleSheet.create({
+    container: {
+        backgroundColor: "#c85260",
+    },
     header: {
         position: 'absolute',
         top: 20,

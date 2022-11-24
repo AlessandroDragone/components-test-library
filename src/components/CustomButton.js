@@ -48,6 +48,7 @@ const mobile = StyleSheet.create({
     fontWeight: "bold",
     fontSize: 15,
     color: "white",
+    textAlign: 'center'
   },
 });
 

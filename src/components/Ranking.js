@@ -95,6 +95,7 @@ const mobile = StyleSheet.create({
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
+        backgroundColor: "#c85260",
     },
     scrollViewContainer: {
         maxHeight: 350,
