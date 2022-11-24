@@ -124,7 +124,13 @@ var style = _reactNative.StyleSheet.create({
     paddingTop: 40,
     color: '#3c5070',
     fontSize: 40,
-    textAlign: 'center'
+    textAlign: 'center',
+    textShadowOffset: {
+      width: 3,
+      height: 1
+    },
+    textShadowColor: "#ffe4e5",
+    fontWeight: "bold"
   },
   inputBox: {
     marginBottom: 15
