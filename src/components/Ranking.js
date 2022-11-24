@@ -54,7 +54,7 @@ function Ranking(props) {
                                 <View style={mobile.line} />
                                 <View style={mobile.row}>
                                     <View style={mobile.viewRow}>
-                                        <Text style={isDesktop ? [mobile.textRow, desktop.textRow] : mobile.textRow}>{d.rank}</Text>
+                                        <Text style={isDesktop ? [mobile.textRow, desktop.textRow] : mobile.textRow}>#{key+1}</Text>
                                     </View>
 
                                     <View style={mobile.viewRow}>
