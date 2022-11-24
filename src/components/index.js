@@ -6,6 +6,7 @@ import IconButton from './IconButton';
 import Home from './Home';
 import Play from './Play';
 import Ranking from './Ranking';
+import Result from './Result';
 
 export { 
     CustomButton,
@@ -14,4 +15,5 @@ export {
     Home,
     Play,
     Ranking,
+    Result,
 };

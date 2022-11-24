@@ -14,105 +14,8 @@ function Ranking(props) {
         }
     }
 
-    const data = [
-        {
-            rank: 1,
-            nickname: 'alex',
-            vittorie: 1,
-            sconfitte: 2,
-            match: 3
-        },
-        {
-            rank: 2,
-            nickname: 'marco',
-            vittorie: 1,
-            sconfitte: 2,
-            match: 3
-        },
-        {
-            rank: 3,
-            nickname: 'gianluca',
-            vittorie: 1,
-            sconfitte: 2,
-            match: 3
-        },
-        {
-            rank: 1,
-            nickname: 'alex',
-            vittorie: 1,
-            sconfitte: 2,
-            match: 3
-        },
-        {
-            rank: 2,
-            nickname: 'marco',
-            vittorie: 1,
-            sconfitte: 2,
-            match: 3
-        },
-        {
-            rank: 3,
-            nickname: 'gianluca',
-            vittorie: 1,
-            sconfitte: 2,
-            match: 3
-        },
-        {
-            rank: 1,
-            nickname: 'alex',
-            vittorie: 1,
-            sconfitte: 2,
-            match: 3
-        },
-        {
-            rank: 2,
-            nickname: 'marco',
-            vittorie: 1,
-            sconfitte: 2,
-            match: 3
-        },
-        {
-            rank: 3,
-            nickname: 'gianluca',
-            vittorie: 1,
-            sconfitte: 2,
-            match: 3
-        },
-        {
-            rank: 1,
-            nickname: 'alex',
-            vittorie: 1,
-            sconfitte: 2,
-            match: 3
-        },
-        {
-            rank: 2,
-            nickname: 'marco',
-            vittorie: 1,
-            sconfitte: 2,
-            match: 3
-        },
-        {
-            rank: 3,
-            nickname: 'gianluca',
-            vittorie: 1,
-            sconfitte: 2,
-            match: 3
-        },
-    ];
-
     return (
         <View style={isDesktop ? [mobile.rankingContainer, desktop.rankingContainer] : mobile.rankingContainer}>
-
-            <View
-                style={mobile.header}
-            >
-                <CustomButton
-                    label={'Classifica'}
-                    callback={goToHome}
-                    isDesktop={isDesktop}
-                />
-            </View>
 
             <Text
                 style={mobile.gameTitle}
@@ -144,40 +47,41 @@ function Ranking(props) {
                 </View>
 
             <ScrollView style={mobile.table}>
-                {data.map((d, key) => {
-                    return (
-                        <View key={key}>
-                            <View style={mobile.line} />
-                            <View style={mobile.row}>
-                                <View style={mobile.viewRow}>
-                                    <Text style={isDesktop ? [mobile.textRow, desktop.textRow] : mobile.textRow}>{d.rank}</Text>
-                                </View>
+                {!!props.data &&
+                    props.data.map((d, key) => {
+                        return (
+                            <View key={key}>
+                                <View style={mobile.line} />
+                                <View style={mobile.row}>
+                                    <View style={mobile.viewRow}>
+                                        <Text style={isDesktop ? [mobile.textRow, desktop.textRow] : mobile.textRow}>{d.rank}</Text>
+                                    </View>
 
-                                <View style={mobile.viewRow}>
-                                    <Text style={isDesktop ? [mobile.textRow, desktop.textRow] : mobile.textRow}>{d.nickname}</Text>
-                                </View>
+                                    <View style={mobile.viewRow}>
+                                        <Text style={isDesktop ? [mobile.textRow, desktop.textRow] : mobile.textRow}>{d.nickname}</Text>
+                                    </View>
 
-                                <View style={mobile.viewRow}>
-                                    <Text style={isDesktop ? [mobile.textRow, desktop.textRow] : mobile.textRow}>{d.vittorie}</Text>
-                                </View>
+                                    <View style={mobile.viewRow}>
+                                        <Text style={isDesktop ? [mobile.textRow, desktop.textRow] : mobile.textRow}>{d.vittorie}</Text>
+                                    </View>
 
-                                <View style={mobile.viewRow}>
-                                    <Text style={isDesktop ? [mobile.textRow, desktop.textRow] : mobile.textRow}>{d.sconfitte}</Text>
-                                </View>
+                                    <View style={mobile.viewRow}>
+                                        <Text style={isDesktop ? [mobile.textRow, desktop.textRow] : mobile.textRow}>{d.sconfitte}</Text>
+                                    </View>
 
-                                <View style={mobile.viewRow}>
-                                    <Text style={isDesktop ? [mobile.textRow, desktop.textRow] : mobile.textRow}>{d.match}</Text>
+                                    <View style={mobile.viewRow}>
+                                        <Text style={isDesktop ? [mobile.textRow, desktop.textRow] : mobile.textRow}>{d.match}</Text>
+                                    </View>
                                 </View>
                             </View>
-                        </View>
-                    )
+                        )
 
-                })}
+                    })}
             </ScrollView>
             </View>
 
             <CustomButton
-                label={'Gioca'}
+                label={'Home'}
                 callback={goToHome}
                 isDesktop={isDesktop}
             />
@@ -249,14 +153,6 @@ const mobile = StyleSheet.create({
         textShadowOffset: { width: 3, height: 1 },
         textShadowColor: '#ffe4e5',
         textAlign: 'center'
-    },
-    header: {
-        position: 'absolute',
-        top: 30,
-        right: 25,
-        flex: 1,
-        justifyContent: 'flex-end',
-        alignItems: 'flex-end',
     },
 });
 
