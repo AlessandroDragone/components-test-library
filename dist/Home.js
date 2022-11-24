@@ -74,7 +74,7 @@ function Home(props) {
   })), /*#__PURE__*/_react.default.createElement(_reactNative.View, {
     style: style.inputContainer
   }, /*#__PURE__*/_react.default.createElement(_CustomInputBox.default, {
-    placeholder: "Inserisci",
+    placeholder: "Inserisci un nickname",
     callbackChange: setUsername,
     isDesktop: isDesktop,
     style: style.inputBox
