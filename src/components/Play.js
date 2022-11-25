@@ -159,6 +159,7 @@ const style = StyleSheet.create({
     fontSize: 35,
     textShadowOffset: { width: 3, height: 1 },
     textShadowColor: "#ffe4e5",
+    textShadowRadius: 1,
     fontWeight: "bold",
   },
   text: {

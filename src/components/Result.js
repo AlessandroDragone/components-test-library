@@ -71,23 +71,11 @@ function Result(props) {
                                 </Text>
                             </>
                     }
-                    <View style={isDesktop ? desktop.score : mobile.score}>
-                        <Text
-                            style={isDesktop ? [mobile.text, desktop.text] : mobile.text}
-                        >
-                            {props.username}
-                        </Text>
-                        <Text
-                            style={isDesktop ? [mobile.text, desktop.text] : [mobile.text, mobile.textScore]}
-                        >
-                            -
-                        </Text>
-                        <Text
-                            style={isDesktop ? [mobile.text, desktop.text] : [mobile.text, mobile.textScore]}
-                        >
-                            CPU:
-                        </Text>
-                    </View>
+                    <Text
+                        style={isDesktop ? [mobile.text, desktop.text] : mobile.text}
+                    >
+                        {props.username} - CPU:
+                    </Text>
                     <Text
                         style={isDesktop ? [mobile.text, desktop.text] : mobile.text}
                     >
@@ -148,9 +136,6 @@ const mobile = StyleSheet.create({
     winLoseContainer: {
         textAlign: 'center',
     },
-    score: {
-        flexDirection: 'column',
-    },
     text: {
         color: '#3c5070',
         fontSize: 30,
@@ -158,11 +143,9 @@ const mobile = StyleSheet.create({
         textAlign: 'center',
         textShadowOffset: { width: 1, height: 3 },
         textShadowColor: '#ffe4e588',
+        textShadowRadius: 1,
         margin: 0,
         marginTop: 10,
-    },
-    textScore: {
-        marginTop: 0,
     },
     buttons: {
         justifyContent: 'space-evenly',
@@ -178,10 +161,6 @@ const desktop = StyleSheet.create({
     text: {
         fontSize: 45,
         marginTop: 30,
-    },
-    score: {
-        flexDirection: 'row',
-       justifyContent: 'center',
     },
     buttons: {
         flexDirection: 'row',

@@ -154,6 +154,7 @@ const mobile = StyleSheet.create({
         fontWeight: 'bold',
         textShadowOffset: { width: 3, height: 1 },
         textShadowColor: '#ffe4e5',
+        textShadowRadius: 1,
         textAlign: 'center'
     },
 });

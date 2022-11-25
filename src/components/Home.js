@@ -152,6 +152,7 @@ const style = StyleSheet.create({
     textAlign: "center",
     textShadowOffset: { width: 3, height: 1 },
     textShadowColor: "#ffe4e5",
+    textShadowRadius: 1,
     fontWeight: "bold",
   },
   inputBox: {

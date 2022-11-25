@@ -61,15 +61,9 @@ function Result(props) {
     style: isDesktop ? [mobile.text, desktop.text] : mobile.text
   }, "Hai perso!"), /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
     style: isDesktop ? [mobile.text, desktop.text] : mobile.text
-  }, props.penitence)), /*#__PURE__*/_react.default.createElement(_reactNative.View, {
-    style: isDesktop ? desktop.score : mobile.score
-  }, /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
+  }, props.penitence)), /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
     style: isDesktop ? [mobile.text, desktop.text] : mobile.text
-  }, props.username), /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
-    style: isDesktop ? [mobile.text, desktop.text] : [mobile.text, mobile.textScore]
-  }, "-"), /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
-    style: isDesktop ? [mobile.text, desktop.text] : [mobile.text, mobile.textScore]
-  }, "CPU:")), /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
+  }, props.username, " - CPU:"), /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
     style: isDesktop ? [mobile.text, desktop.text] : mobile.text
   }, props.userScore, " - ", props.cpuScore))), /*#__PURE__*/_react.default.createElement(_reactNative.View, {
     style: isDesktop ? [mobile.buttons, desktop.buttons] : mobile.buttons
@@ -115,9 +109,6 @@ var mobile = _reactNative.StyleSheet.create({
   winLoseContainer: {
     textAlign: 'center'
   },
-  score: {
-    flexDirection: 'column'
-  },
   text: {
     color: '#3c5070',
     fontSize: 30,
@@ -128,11 +119,9 @@ var mobile = _reactNative.StyleSheet.create({
       height: 3
     },
     textShadowColor: '#ffe4e588',
+    textShadowRadius: 1,
     margin: 0,
     marginTop: 10
-  },
-  textScore: {
-    marginTop: 0
   },
   buttons: {
     justifyContent: 'space-evenly',
@@ -147,10 +136,6 @@ var desktop = _reactNative.StyleSheet.create({
   text: {
     fontSize: 45,
     marginTop: 30
-  },
-  score: {
-    flexDirection: 'row',
-    justifyContent: 'center'
   },
   buttons: {
     flexDirection: 'row',

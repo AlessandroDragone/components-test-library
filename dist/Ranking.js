@@ -158,6 +158,7 @@ var mobile = _reactNative.StyleSheet.create({
       height: 1
     },
     textShadowColor: '#ffe4e5',
+    textShadowRadius: 1,
     textAlign: 'center'
   }
 });
