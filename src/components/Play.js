@@ -13,7 +13,7 @@ const res = [
 
 function Play(props) {
   let IAinput = useRef(null);
-  let stack = [props.paper, props.scissor, props.rock];
+  let stack = [props.paper, props.scissor, props.rock, null];
 
   const [state, setState] = useState({
     cpuPoint: 0,
@@ -74,12 +74,16 @@ function Play(props) {
     }
     console.log(state.playerChoice, IAchoice, result);
 
+    let playerChoice = state.playerChoice
+
     if (cpuPoint === 3 || playerPoint === 3) {
       let result = {
         cpu: cpuPoint,
         playerPoint: playerPoint,
       };
 
+      playerChoice = 3;
+      IAchoice = 3;
       cpuPoint = 0;
       playerPoint = 0;
       message = '';
@@ -90,7 +94,7 @@ function Play(props) {
     setState({
       ...state,
       cpuIconChoice: stack[IAchoice],
-      playerIconChoice: stack[state.playerChoice],
+      playerIconChoice: stack[playerChoice],
       resultMessage: message,
       playerPoint: playerPoint,
       cpuPoint: cpuPoint,
@@ -101,8 +105,9 @@ function Play(props) {
   return (
     <View style={style.container}>
       <Text style={isDesktop ? [style.title, desktop.title] : style.title}>Sasso Carta Forbice</Text>
+      <Text style={isDesktop ? [style.text, style.score, desktop.text] : [style.text, style.score]}>Punteggio:</Text>
       <Text style={isDesktop ? [style.text, style.score, desktop.text] : [style.text, style.score]}>
-        Punteggio: {props.username} {state.playerPoint} - {state.cpuPoint} CPU
+        {props.username} {state.playerPoint} - {state.cpuPoint} CPU
       </Text>
       <Text style={isDesktop ? [style.text, desktop.text] : style.text}>Scegli la tua giocata:</Text>
       <View style={style.iconContainer}>
@@ -163,6 +168,7 @@ const style = StyleSheet.create({
   },
   score: {
     fontWeight: "bold",
+    marginBottom: 5,
   },
   button: {
     marginVertical: 40,

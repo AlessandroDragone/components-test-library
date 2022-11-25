@@ -26,7 +26,7 @@ var lastIAPlays = [];
 var res = [["p", "w", "l"], ["l", "p", "w"], ["w", "l", "p"]];
 function Play(props) {
   var IAinput = (0, _react.useRef)(null);
-  var stack = [props.paper, props.scissor, props.rock];
+  var stack = [props.paper, props.scissor, props.rock, null];
   var _useState = (0, _react.useState)({
       cpuPoint: 0,
       playerPoint: 0,
@@ -84,11 +84,14 @@ function Play(props) {
         break;
     }
     console.log(state.playerChoice, IAchoice, result);
+    var playerChoice = state.playerChoice;
     if (cpuPoint === 3 || playerPoint === 3) {
       var _result = {
         cpu: cpuPoint,
         playerPoint: playerPoint
       };
+      playerChoice = 3;
+      IAchoice = 3;
       cpuPoint = 0;
       playerPoint = 0;
       message = '';
@@ -96,7 +99,7 @@ function Play(props) {
     }
     setState(_objectSpread(_objectSpread({}, state), {}, {
       cpuIconChoice: stack[IAchoice],
-      playerIconChoice: stack[state.playerChoice],
+      playerIconChoice: stack[playerChoice],
       resultMessage: message,
       playerPoint: playerPoint,
       cpuPoint: cpuPoint,
@@ -109,7 +112,9 @@ function Play(props) {
     style: isDesktop ? [style.title, desktop.title] : style.title
   }, "Sasso Carta Forbice"), /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
     style: isDesktop ? [style.text, style.score, desktop.text] : [style.text, style.score]
-  }, "Punteggio: ", props.username, " ", state.playerPoint, " - ", state.cpuPoint, " CPU"), /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
+  }, "Punteggio:"), /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
+    style: isDesktop ? [style.text, style.score, desktop.text] : [style.text, style.score]
+  }, props.username, " ", state.playerPoint, " - ", state.cpuPoint, " CPU"), /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
     style: isDesktop ? [style.text, desktop.text] : style.text
   }, "Scegli la tua giocata:"), /*#__PURE__*/_react.default.createElement(_reactNative.View, {
     style: style.iconContainer
@@ -167,7 +172,8 @@ var style = _reactNative.StyleSheet.create({
     fontSize: 25
   },
   score: {
-    fontWeight: "bold"
+    fontWeight: "bold",
+    marginBottom: 5
   },
   button: {
     marginVertical: 40

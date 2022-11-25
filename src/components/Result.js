@@ -41,11 +41,11 @@ function Result(props) {
                 {
                     props.win ?
                         <View style={mobile.imgContainer}>
-                            <Image style={isDesktop ? [mobile.img, desktop.img] : mobile.img} source={props.imgWin} resizeMode={'contain'}/>
+                            <Image style={isDesktop ? [mobile.img, desktop.img] : mobile.img} source={props.imgWin} resizeMode={'contain'} />
                         </View>
                         :
                         <View style={mobile.imgContainer}>
-                            <Image style={isDesktop ? [mobile.img, desktop.img] : mobile.img} source={props.imgLose} resizeMode={'contain'}/>
+                            <Image style={isDesktop ? [mobile.img, desktop.img] : mobile.img} source={props.imgLose} resizeMode={'contain'} />
                         </View>
                 }
 
@@ -64,17 +64,34 @@ function Result(props) {
                                 >
                                     Hai perso!
                                 </Text>
-                                <Text 
+                                <Text
                                     style={isDesktop ? [mobile.text, desktop.text] : mobile.text}
                                 >
                                     {props.penitence}
                                 </Text>
                             </>
                     }
+                    <View style={isDesktop ? desktop.score : mobile.score}>
+                        <Text
+                            style={isDesktop ? [mobile.text, desktop.text] : mobile.text}
+                        >
+                            {props.username}
+                        </Text>
+                        <Text
+                            style={isDesktop ? [mobile.text, desktop.text] : [mobile.text, mobile.textScore]}
+                        >
+                            -
+                        </Text>
+                        <Text
+                            style={isDesktop ? [mobile.text, desktop.text] : [mobile.text, mobile.textScore]}
+                        >
+                            CPU:
+                        </Text>
+                    </View>
                     <Text
                         style={isDesktop ? [mobile.text, desktop.text] : mobile.text}
                     >
-                        {props.username} - CPU: {props.userScore} - {props.cpuScore}
+                        {props.userScore} - {props.cpuScore}
                     </Text>
                 </View>
             </View>
@@ -131,6 +148,9 @@ const mobile = StyleSheet.create({
     winLoseContainer: {
         textAlign: 'center',
     },
+    score: {
+        flexDirection: 'column',
+    },
     text: {
         color: '#3c5070',
         fontSize: 30,
@@ -140,6 +160,9 @@ const mobile = StyleSheet.create({
         textShadowColor: '#ffe4e588',
         margin: 0,
         marginTop: 10,
+    },
+    textScore: {
+        marginTop: 0,
     },
     buttons: {
         justifyContent: 'space-evenly',
@@ -155,6 +178,10 @@ const desktop = StyleSheet.create({
     text: {
         fontSize: 45,
         marginTop: 30,
+    },
+    score: {
+        flexDirection: 'row',
+       justifyContent: 'center',
     },
     buttons: {
         flexDirection: 'row',
