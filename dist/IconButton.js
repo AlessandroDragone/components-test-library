@@ -15,11 +15,16 @@ function IconButton(props) {
   };
   return /*#__PURE__*/_react.default.createElement(_reactNative.TouchableOpacity, {
     onPress: handleClick,
-    style: style.container
+    style: props.selected ? [style.container, style.selected] : style.container
   }, props.children);
 }
 var style = _reactNative.StyleSheet.create({
   container: {
     marginHorizontal: 10
+  },
+  selected: {
+    transform: [{
+      scale: 1.3
+    }]
   }
 });

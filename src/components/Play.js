@@ -22,15 +22,42 @@ function Play(props) {
     resultMessage: "",
     cpuIconChoice: null,
     playerIconChoice: null,
+    selected: {
+      rock: false,
+      paper: false,
+      scissor: false,
+    },
   });
 
   const isDesktop = useMediaQuery({ minWidth: 650 });
 
   function handleChoice(e) {
     console.log(e);
+
+    let rock = false;
+    let paper = false;
+    let scissor = false;
+
+    switch (e) {
+      case 0:
+        paper = true;
+        break;
+      case 1:
+        scissor = true;
+        break;
+      case 2:
+        rock = true;
+        break;
+    }
+
     setState({
       ...state,
       playerChoice: e,
+      selected: {
+        rock: rock,
+        paper: paper,
+        scissor: scissor,
+      }
     });
   }
 
@@ -99,6 +126,11 @@ function Play(props) {
       playerPoint: playerPoint,
       cpuPoint: cpuPoint,
       playerChoice: null,
+      selected: {
+        rock: false,
+        paper: false,
+        scissor: false,
+      },
     });
   }
 
@@ -111,13 +143,13 @@ function Play(props) {
       </Text>
       <Text style={isDesktop ? [style.text, desktop.text] : style.text}>Scegli la tua giocata:</Text>
       <View style={style.iconContainer}>
-        <IconButton isDesktop={isDesktop} value={0} callback={handleChoice}>
+        <IconButton isDesktop={isDesktop} value={0} callback={handleChoice} selected={state.selected.paper}>
           {props.paper}
         </IconButton>
-        <IconButton isDesktop={isDesktop} value={1} callback={handleChoice}>
+        <IconButton isDesktop={isDesktop} value={1} callback={handleChoice} selected={state.selected.scissor}>
           {props.scissor}
         </IconButton>
-        <IconButton isDesktop={isDesktop} value={2} callback={handleChoice}>
+        <IconButton isDesktop={isDesktop} value={2} callback={handleChoice} selected={state.selected.rock}>
           {props.rock}
         </IconButton>
       </View>
@@ -184,7 +216,7 @@ const style = StyleSheet.create({
 
 const desktop = StyleSheet.create({
   title: {
-      fontSize: 45,
+    fontSize: 45,
   },
   text: {
     fontSize: 35,

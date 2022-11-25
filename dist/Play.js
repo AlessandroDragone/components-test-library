@@ -33,7 +33,12 @@ function Play(props) {
       playerChoice: null,
       resultMessage: "",
       cpuIconChoice: null,
-      playerIconChoice: null
+      playerIconChoice: null,
+      selected: {
+        rock: false,
+        paper: false,
+        scissor: false
+      }
     }),
     _useState2 = _slicedToArray(_useState, 2),
     state = _useState2[0],
@@ -43,8 +48,27 @@ function Play(props) {
   });
   function handleChoice(e) {
     console.log(e);
+    var rock = false;
+    var paper = false;
+    var scissor = false;
+    switch (e) {
+      case 0:
+        paper = true;
+        break;
+      case 1:
+        scissor = true;
+        break;
+      case 2:
+        rock = true;
+        break;
+    }
     setState(_objectSpread(_objectSpread({}, state), {}, {
-      playerChoice: e
+      playerChoice: e,
+      selected: {
+        rock: rock,
+        paper: paper,
+        scissor: scissor
+      }
     }));
   }
   function handleIAPlay() {
@@ -103,7 +127,12 @@ function Play(props) {
       resultMessage: message,
       playerPoint: playerPoint,
       cpuPoint: cpuPoint,
-      playerChoice: null
+      playerChoice: null,
+      selected: {
+        rock: false,
+        paper: false,
+        scissor: false
+      }
     }));
   }
   return /*#__PURE__*/_react.default.createElement(_reactNative.View, {
@@ -121,15 +150,18 @@ function Play(props) {
   }, /*#__PURE__*/_react.default.createElement(_IconButton.default, {
     isDesktop: isDesktop,
     value: 0,
-    callback: handleChoice
+    callback: handleChoice,
+    selected: state.selected.paper
   }, props.paper), /*#__PURE__*/_react.default.createElement(_IconButton.default, {
     isDesktop: isDesktop,
     value: 1,
-    callback: handleChoice
+    callback: handleChoice,
+    selected: state.selected.scissor
   }, props.scissor), /*#__PURE__*/_react.default.createElement(_IconButton.default, {
     isDesktop: isDesktop,
     value: 2,
-    callback: handleChoice
+    callback: handleChoice,
+    selected: state.selected.rock
   }, props.rock)), /*#__PURE__*/_react.default.createElement(_reactNative.View, {
     style: style.button
   }, /*#__PURE__*/_react.default.createElement(_CustomButton.default, {

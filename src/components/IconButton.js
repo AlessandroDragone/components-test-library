@@ -9,7 +9,7 @@ export default function IconButton(props) {
   };
 
   return (
-    <TouchableOpacity onPress={handleClick} style={style.container}>
+    <TouchableOpacity onPress={handleClick} style={props.selected ? [style.container, style.selected] : style.container}>
       {props.children}
     </TouchableOpacity>
   );
@@ -18,5 +18,8 @@ export default function IconButton(props) {
 const style = StyleSheet.create({
   container: {
     marginHorizontal: 10,
+  },
+  selected: {
+    transform: [{ scale: 1.3 }],
   },
 });
